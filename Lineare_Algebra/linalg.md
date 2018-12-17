@@ -1,0 +1,1593 @@
+# Lineare Algebra
+
+[TOC]
+
+## Organisatorisches
+
+### Team
+* Professorinnen: Özlem Imamoglu, Olga Sorkine-Hornung
+* Hauptassistent: Christian Schüller
+* Meine Übungsgruppe: Katja Wolff, Do 14-16 CAB G 57
+
+### Webseite
+<http://igl.ethz.ch/teaching/linear-algebra/la2018/>
+-   Folien (selten genutzt)
+-   Handschriftliche Notizen (wichtig)
+-   Videoaufzeichnung
+-   Übungsblätter
+-   Aktuelle Nachrichten
+
+### Übungen
+-   Aufgabenblätter (Jeden Mittwoch neu, Freitag nach einer Woche Abgabe)
+-   Vor- und Nachbesprechung in Übungsgruppen
+-   Diskussion mit anderen
+-   Theorie Aufgaben, Multiple-Choice Aufgaben, Matlab Aufgaben
+-   Eine Bonusaufgabe pro Serie (Korrektur durch Assistentin)
+
+## Komplexe Zahlen
+
+### Einführung
+$$
+x+5=0\\
+x+5=0 2x+3=0\\
+2x+3=0 x^2-2=0\\
+x^2-2=0 x^2+1=0\\
+x^2+1=0
+$$
+
+##### Definition
+Wir definieren eine neue Zahl, $i$, welche die Gleichung $x^2=-1$ löst.
+Es gilt also $i^2=-1$. Wir nennen diese Zahl **imaginäre Einheit**.
+
+##### Definition
+Eine Zahl $z$ der Form $z=x+yi$ nennen wir eine **komplexe Zahl**. $x$
+und $y$ sind dabei reelle Zahlen. Jede komplexe Zahl $z=x+yi$ ist durch
+die reellen Zahlen $x$ und $y$ **eindeutig** festgelegt.
+$x+yi=a+bi \Leftrightarrow x=a, y=b$.
+
+##### Definition
+$x$ heisst der **Realteil** von $z=x+yi$. Man schreibt $x=Re(z)$. $y$
+heisst der **Imaginärteil** von $z$. Man schreibt $y=Im(z)$.
+$$\mathbb{C} := \{z=x+yi | x,y \in \mathbb{R}\}$$ Die Menge der
+reellen Zahlen lässt sich so als Teilmenge der komplexen Zahlen
+auffassen: $$\mathbb{R} = \{z \in \mathbb{C} \mid Im(z)=0\}$$ Zahlen der
+Form $yi$ ($Re(z)=0$) heissen **rein imaginär** (purely imaginary).
+
+##### Definition
+
+Komplexe Zahlen lassen sich als Paar zweier reeller Zahlen darstellen:
+$$z=x+yi \in \mathbb{C} \leftrightarrow (x,y) \in \mathbb{R}^2$$ So kann
+man komplexe Zahlen als Punkte in der Zahlenebende darstellen. Hier
+nennen wir die horizontale Achse **reelle Achse** (mit $\mathbb{R}$
+gekennzeichnet) und die vertikale Achse **imaginäre Achse** (mit
+$i\mathbb{R}$ gekennzeichnet).
+
+### Rechnen mit komplexen Zahlen
+
+##### Definition: Addition zweier komplexer Zahlen
+$$
+z=x+yi \text{ , } w=u+vi\\
+z+w=w+z:=(x+u)+(y+v)i
+$$
+
+##### Definition: Multiplikation mit reellen Zahlen (Skalarmultiplikation)
+$$
+z=x+yi \in \mathbb{C} \text{ , } \alpha \in \mathbb{R}\\
+\alpha * z := \alpha x + \alpha y i
+$$
+
+##### Definition: Multiplikation zweier komplexer Zahlen
+$$
+z=x+yi \text{ , } w=u+vi\\
+wz = (u+vi)(x+yi)\\
+wz = ux+uyi+vxi+vyi^2\\
+wz = ux+(uy+vx)i-vy\\
+\textbf{wz := (ux-vy) + (uy+vx)i}
+$$
+
+##### Definition
+Sei $z=x+yi$ eine komplexe Zahl. Die zu $z$ **konjugiert komplexe** Zahl
+ist die Zahl $x-yi$. Man schreibt $\overline{z}$ ($z$ konjugiert oder $z$
+bar). $$\overline{z}:=x-yi$$
+
+##### Definition
+Die nicht negative reelle Zahl $\sqrt{z\overline{z}}=:\mid z \mid$ heisst der
+**Betrag** (modulus) oder Absolutbetrag der komplexen Zahl z.
+$\mid z \mid = \sqrt{x^2+y^2}$
+
+##### Definition: Division zweier komplexer Zahlen
+$$
+z=x+yi \text{ , } w=u+vi \neq 0\\
+\frac{z}{w}:=\frac{z}{w}*\frac{\overline{w}}{\overline{w}}=\frac{z\overline{w}}{\mid w \mid ^2}
+$$
+
+#### Ein paar Rechenregeln
+
+$$
+​    \overline{zw} = \overline{z}*\overline{w}\\
+​    \overline{\frac{z}{w}} = \frac{\overline{z}}{\overline{w}}\\
+​    |z| = |\overline{z}| \\
+​    |zw| = |z| |w| \\
+​    |\frac{z}{w}| = \frac{|z|}{|w|} \\
+​    |z+w| \leq |z| + |w|
+$$
+
+### Die Darstellung in Polarform
+
+#### Allgemein
+Anstelle der Normalform ($z = x + iy$), lassen sich komplexe Zahlen auch
+in der Polarform darstellen ($z = r^{i\theta}$). Hierbei ist ausgehend
+vom Einheitskreis $r$ die Distanz vom Ursprung ($r=| z |$).
+$\theta$ ist das sogenannte Argument von $z$ und entspricht dem Winkel
+zwischen x-Achse und Ortsvektor des Punktes $z$. Da $\theta$ und
+$\theta + 2 \pi$ derselben Zahl $z$ zugeordnet werden können, ist die
+Polardastellung zunächst nicht eindeutig, weswegen man $\theta$ meist
+auf das Interval $[ 0 , 2 \pi )$ oder $(-\pi,\pi]$ einschränkt.
+
+#### Polarform - kartesische Form
+
+$$
+​    z=x+iy, z=r^{i\theta}\\
+​    (x,y)\longrightarrow (r,\theta) \\
+​    r=| z |\\
+​    \theta = arccos(\frac{x}{r}) = arcsin(\frac{y}{r})\\
+​    x = r*cos(\theta)\\
+​    y = r*sin(\theta)\\
+​    z = x+iy = r*cos(\theta)+ir*sin(\theta) = r*(cos(\theta)+i*sin(\theta))\\
+​    \text{Eulersche Formel:}\\
+​    e^{i\theta} := cos(\theta)+i*sin(\theta)\\
+​    \text{Ein paar besondere Werte:}\\
+​    e^{i*0} = 1\\
+​    e^{i*2\pi} = 1\\
+​    e^{i*\frac{\pi}{2}} = i = cos(2\pi)+i*sin(2\pi)\\
+​    z=x+iy=re^{i\theta}\\
+​    \text{Ein Sonderfall:}\\
+​    z=0\\
+​    r=| z | = 0\\
+​    \text{Der Winkel } \theta \text{ ist hier frei wählbar.}
+$$
+
+#### Rechnen mit der Polarform
+Es gelten grundsätzlich dieselben Regeln, wie bei jeder Berechnung mit
+Potenzen.Allerdings muss beachtet werden, dass $\theta$ eindeutig modulo
+$2\pi$ ist, also $e^{i\theta} = e^{i*(\theta+2\pi k)}, k \in \mathbb{Z}$
+gilt.
+
+Graphisch betrachtet entsprechen die Multiplikation und Division zweier
+komplexer Zahlen, daher einer Drehung um den Ursprung und Streckung bzw.
+Stauchung des Ortsvektors. In der Multiplikation zweier komplexer Zahlen
+werden die Winkel addiert und die Längen der Ortsvektoren multipliziert.
+
+In $\mathbb{C}$ sind alle Gleichungen $z^2=c, c \in \mathbb{C}$ für jede
+komplexe Zahl $c=se^{i\theta}$ lösbar. Es gilt, für jede Zahl
+$c=se^{i\theta} \in \mathbb{C}$ und $q \in \mathbb{N}$ haben wir für die
+Lösung der Gleichung $z^q=c=se^{i\theta}$:
+$z=\sqrt[9]{s}e^{i\theta}, \theta=\frac{\theta}{9}+\frac{2 \pi k}{9}, k = 0,1,2,..,q-1$.
+
+## Matrizen und Vektoren in $\mathbb{R}^n$ und $\mathbb{C}^n$
+
+### Lineare Gleichungssysteme
+Ein Lineares Gleichungssystem (linear system of equation) hat die
+folgende Form:
+
+$$\begin{gathered}
+​    a_{1 1}+x_1+a_{1 2}+x_2+...+a_{1 n}+x_n=b_1\\
+​    a_{2 1}+x_1+a_{2 2}+x_2+...+a_{2 n}+x_n=b_2\\
+​    ...\\
+​    a_{m 1}+x_1+a_{m 2}+x_2+...+a_{m n}+x_n=b_m\\\end{gathered}$$
+
+Hier sind die Zahlen $a_{i j}, i=1,...,m, j=1,...,n$ die
+**Koeffizienten** des Systems. $b_i, i=1,...,m$ ist die rechte Seite.
+Die Größen $x_1, x_2, ..., x_n$ sind die unbekannten Variablen.
+
+Ein solches LGS lässt sich auch wie folgt schreiben:
+
+$$\begin{pmatrix}
+​    a_{1 1} & a_{1 2} & \dots & a_{1 n} \\
+​    a_{2 1} & a_{2 2} & \dots & a_{2 n} \\
+​    \vdots & \vdots & \vdots & \vdots \\
+​    a_{m 1} & a_{m 2} & \dots & a_{m n}
+​    \end{pmatrix}
+​    *
+​    \begin{pmatrix}
+​    x_1\\
+​    x_2\\
+​    \vdots\\
+​    x_m
+​    \end{pmatrix}
+​    =
+​    \begin{pmatrix}
+​    b_1\\
+​    b_2\\
+​    \vdots\\
+​    b_m
+​    \end{pmatrix}
+​    \Rightarrow
+​    Ax=b$$
+
+Hier ist $A$ die Koeffizientenmatrix, $x$ und $b$ sind Spaltenvektoren.
+
+##### Defintion Matrix
+
+Eine $m \times n$ Matrix ist eine Anordnung (ein rechteckiges Schema)
+von $mn$ Skalaren mit $m$ Zeilen und $n$ Spalten der Form
+$\begin{pmatrix}
+a_{1 1} & a_{1 2} & \dots & a_{1 n} \\
+a_{2 1} & a_{2 2} & \dots & a_{2 n} \\
+\vdots & \vdots & \vdots & \vdots \\
+a_{m 1} & a_{m 2} & \dots & a_{m n}
+\end{pmatrix}$ kurz,
+$A=(a_{i j})_{ij=1}^{m,n}=(a_{i j})_{1 \leq i \leq m, 1 \leq j \leq n}$.
+Die Zahlen $a_{1 1},...,a_{m n}$ heissen die **Elemente** oder
+**Koeffizienten** der Matrix $A$. Der erste Index $i$ gibt die
+Zeilennummer an, der zweite index $j$ bezeichnet die Spaltennummer, in
+der das Element $a_{i j}$ steht. Die Elemente
+$e_{jj} (j=1,...,min\{m,n\})$ heißen **Diagonalelemente**
+
+##### Definiton Besondere Matrizen
+-   Eine $n \times n$ Matrix heisst **quadratische Matrix**
+-   Eine $m \times 1$ Matrix heisst **Spaltenvektor**,
+    **Kolonnenvektor** oder **$m$-Vektor**.
+-   Eine $1 \times n$ Matrix heisst **Zeilenvektor** oder **$n$-Tupel**
+-   Das $k$-te Element eines Kolonnenvektors $s$ oder Zeilenvektors $z$
+    nennen wir $k$-t Komponente des Vektors und bezeichnen es mit $s_k$
+    oder $z_k$
+-   Eine $m \times n$ Matrix heisst **Nullmatrix**, wenn jedes Element
+    gleich Null ist. Jede Nullmatrix wird mit O bezeichnet, jeder
+    Nullvektor mit o.
+-   Eine wuadratische Matrix wird **Diagonalmatrix** genannt, wenn
+    $d_{i j} = 0 \text{ für } i \neq j$. Wir schreiben
+    $D=diag(d_{1 1}, d_{2 2}, ..., d_{n n})$.
+-   Eine Diagonalmatrix heisst **Einheitsmatrix** oder
+    **Identitätsmatrix**, wenn alle Diagonalelemente gleich Eins sind.
+-   Eine quadratische Matrix $R$ heisst **obere Dreiecksmatrix** oder
+    **Rechtsdreiecksmatrix**, wenn $r_{i j}=0$ für $i \geq j$.
+-   Eine $n \times n$ Matrix $L$ heisst **untere Dreiecksmatrix** oder
+    **Linksdreiecksmatrix**, wenn $r_{i j}=0$ für $i \leq j$.
+-   $\mathbb{R}^{m \times n} := \{M = (m_{i j} (1 \leq i \leq m, 1 \leq j \leq n) \mid m_{i j} \in \mathbb{R})\}$
+    (Die Menge der rationalen $m \times n$ Matrizen)
+-   $\mathbb{C}^{m \times n} := \{M = (m_{i j} (1 \leq i \leq m, 1 \leq j \leq n) \mid m_{i j} \in \mathbb{C})\}$
+    (Die Menge der komplexen $m \times n$ Matrizen)
+-   $\mathbb{R}^{n}$ Die Menge der Reellen Vektoren.
+
+### Rechnen mit Matrizen
+
+##### Multiplikation einer Matrix mit einem Skalar
+Eine $m \times n$ Matrix wird mit einem Skalar $\alpha \in \mathbb{R}$
+multipliziert, indem man jedes Element von $A$ mit $\alpha$
+multipliziert. Die resultierende $m \times n$ Matrix wird mit $\alpha A$
+bezeichnet. $(\alpha A)_{ij} := a (A)_{ij}$.
+
+##### Addition zweier Matrizen
+
+Werden zwei Matrizen $A$ und $B$ miteinander addiert, so werden
+entsprechende Elemente miteinander addiert:
+$(A+B)_{ij} := (A)_{ij} + (B)_{ij}$
+
+##### Multiplikation zweier Matrizen
+
+Das Produkt zweier Matrizen $AB$ kann nur gebildet werden, wenn die
+Anzahl der Spalten von $A$ mit der Anzahl der Zeilen von $B$
+übereinstimmt. Es ist wie folgt definiert: $$\begin{aligned}
+​    (AB)_{ij} := \sum_{k=1}^{n}(A)_{ik}(B)_{kj}\\
+​    = (A)_{i 1}(B)_{1 j} + (A)_{i 2}(B)_{2 j} + ... + (A)_{i n}(B)_{n j}\end{aligned}$$
+Jedes Element $c_{nm}$ der resultierenden Matrix ist also das
+Skalarprodukt der $n$-ten Zeile der ersten Matrix und der $m$-ten Spalte
+der zweiten Matrix
+
+##### Rechenregeln
+
+$$\begin{gathered}
+​    (\alpha \beta)A = \alpha (\beta A)\\
+​    (\alpha A)B = \alpha (AB) = A(\alpha B)\\
+​    (\alpha + \beta)A = \alpha A + \beta A\\
+​    \alpha (A+B) = \alpha A + \beta B\\
+​    A + B = B + A\\
+​    (A + B) + C = A + (B + C)\\
+​    A(BC) = (AB)C\\
+​    (A+B)C = AC + BC\\
+​    A(B+C) = AB + AC\\
+​    \text{Für jede $n \times n$ Matrix gilt: } I_n A = A I_n = A\\
+​    \text{Für jede $m \times n$ Matrix gilt: } I_m A = A I_n = A\\
+​    \text{Für jede $m \times n$ Matrix gilt: } A_{m \times n} O_{n \times p} = O_{m \times p} und O_{s \times m} A_{m \times n} = O_{s \times n}\end{gathered}$$
+**WICHTIG!!!**: Die Multiplikation zweier Matrizen ist nicht immer
+kommutativ. Gilt für zwei Matrizen $A$ und $B$, $AB=BA$, so sagt man,
+dass sie kommutieren.
+
+### Inverse Matrizen
+
+##### Definition
+
+Eine $n \times n$ Matrix $A$ heisst invertierbar, wenn es eine
+$n \times n$ Matrix $X$ gibt, sodass $AX=XA=I_n$ gilt.Die Matrix $X$
+heisst inverse von $A$ und wird auch mit $A^{-1}$ bezeichnet.
+
+#### Verfahren zur Bestimmung von inversen Matrizen
+
+Die Inverse einer $n \times n$ Matrix $A$ lässt sich mithilfe des Gauss
+Eliminationsverfahrens bestimmen. Hierzu wird die Matrix $A$ zunächst
+mit $I_n$ erweitert. D.h. diese wird rechts daneben geschrieben.
+Anschließend werden elementare Zeilenoperationen auf die entstandene
+$n \times 2n$ Matrix angewandt, bis die linke Hälfte der
+Identitätsmatrix entspricht. Nun ist die rechte Hälfte die Inverse von
+$A$.
+
+##### Definition Abelsche Gruppe von Matrizen
+
+Eine Menge von Matrizen $G$ in Verbindung mit einem Operator (Beispiel
+$+$) ist eine Gruppe $(G, + )$, sofern die folgenden Eigenschaften
+erfüllt sind:
+
+1.  Es muss ein **neutrales Element** $O \in G$ geben, sodass
+    $A+O=O+A=A, A \in G$ gilt.
+
+2.  Für jedes Element der Menge muss es ein **inverses Element** geben,
+    sodass $A+-A=O=-A+A, \forall A ín G$. Hierbei ist $O$ das neutrale
+    Element.
+
+3.  Der Operator muss assoziativ sein, also
+    $(A+B)+C=A+(B+C), \forall A,B,C \in G$
+
+Ist der Operator zusätzlich auch noch kommutativ
+($A+B=B+A \forall A,B \in G$), so spricht man von einer **abelschen
+Gruppe**.
+
+##### Definition Ring von Matrizen
+
+Betrachten wir die Menge der quadratischen Matrizen der Ordnung $n$,
+also $\mathbb{R}^n$ und $\mathbb{C}^n$, dann haben wir drei besondere
+Eigenschaften:
+
+1.  $(\mathbb{R}^{n \times n}, +)$ ist eine abelsche Gruppe
+
+2.  $(AB)C=A(BC), \forall A,B,C \in \mathbb{R}^{n \times n}$
+
+3.  $A(B+C)=AB+AC$ und $(A+B)C=AC+BC$ für alle
+    $A,B,C \in \mathbb{R}^{n \times n}$
+
+Durch diese drei Eigenschaften bildet $(\mathbb{R}^{n \times n}, +, *)$
+ein **Ring**. Da $I_nA=AI_n=A \forall A \in \mathbb{R}^{n \times n}$,
+sagt man, dass der Ring ein Ring mit Eins ist. (ring with identity)
+
+##### Definition Nullteiler
+
+Zwei $n\times n$ Matrizen $A,B$ mit $AB=O$ heissen Nullteiler.
+
+### Spezialfälle des Matrixprodukts
+
+#### Matrix-Vektor Produkt einer $m \times n$ Matrix und eines $n$ Vektors
+
+$$\begin{gathered}
+​	A_{m \times n} x_{n \times 1} = b_{m \times 1}\\
+​    b_i = \sum_{k=1}^{n}a_{ik}x_{k}, 1 \leq i \leq m\end{gathered}$$
+
+#### Produkt eines Kolonnenvektors mit eine $1 \times 1$ Matrix
+
+$$\begin{gathered}
+​	x_{n \times 1} A_{1 \times 1} = ax\end{gathered}$$
+
+### Definition Linearkombination
+
+Eine **Linearkombination** der Vektoren
+$\overline{a_1}, ..., \overline{a_n}$ ist ein Ausdruck der Form
+$\alpha_1\overline{a_1}, ..., \alpha_n\overline{a_n}$, worin
+$\alpha_1, ..., \alpha_n$ Skalare sind. Sie werden die Koeffizienten der
+Linearkombination (LK) genannt. Die Fragestellung in der Anwendung von
+LKs ist meistens, ob eine bestimmter Vektor eine Linearkombination einer
+Menge anderer Vektoren ist.
+
+-   Das Matrix-Vektor-Produkt kann als LK der Spaltenvektoren der Matrix
+    mit den Komponenten des Vektors als Koeffizienten der LK geschrieben
+    werden.
+
+-   Das Matrix-Matrix-Produkt kann als Zusammensetzen von
+    Matrix-Spaltenvektor-Produkten interpretiert werden.
+
+-   Das Gleichungssystem $Ax=b$ hat genau dann eine Lösung, wenn $b$
+    eine LK der Kolonnenvektoren von A ist.
+
+#### Beispiele
+
+Ist $A$ eine $m \times n$ Matrix und B eine $n \times p$ Matrix, so
+gilt: $$AB=\begin{pmatrix}
+​    	A\overline{b_1} & A\overline{b_2} & \dots & A\overline{b_n} \\ 
+​        \vdots & \vdots & \vdots & \vdots \\
+​	\end{pmatrix}$$
+
+Sind $\overline{a_1}, \overline{a_2}, ..., \overline{a_3}$ die
+Kolonnenvektoren der $m \times n$ Matrix $A$, und $x$ ein $n$-Vektor, so
+gilt $Ax = \overline{a_1}x_1+\overline{a_2}x_2+...+\overline{a_n}x_n$
+
+### Transponierte, Symmetrische und Hermitesche Matrizen
+
+#### Definition: Transponierte Matrix
+
+Sei $A$ eine $m \times n$ Matrix. Dann heisst die $n \times m$ Matrix
+$A^T$ mit $(A^T)_{ij} := (A)_{ji}$ die Transponierte von $A$.
+
+#### Definition: Symmetrische Matrix
+
+Eine Matrix $A$ heisst symmetrisch, wenn $A^T = A$.
+
+#### Definition: komplex konjugierte Matrix
+
+Ist $A$ eine komplexe Matrix, so ist $\overline{A}$ mit
+$(\overline{A})_{ij} := \overline{(A)_{ij}}$ die zu $A$ komplex
+konjugierte Matrix.
+
+#### Definition: Hermitesch transponierte Matrix
+
+$A^H := (\overline{A})^T = \overline{A^T}$ Eine Matrix heisst
+Hermitesch, wenn $A^H = A$.
+
+#### Definition: Schiefsymmetrische Matrix
+
+$A^T = -A$
+
+#### Rechenregeln
+
+Für jede Matrix $A$ gilt:\
+$(A^T)^T=A, (A^H)^H=A$\
+Für jede Matrix $A$ und jeden Skalar $\alpha \in \mathbb{C}$ gilt:\
+$(\alpha A)^T=\alpha A^T$ und $(\alpha A)^H = \overline{\alpha}A^H$\
+Für $m \times n$ Matrizen $A$ und $B$ gilt:\
+$(A+B)^T = A^T + B^T$ und $(A+B)^H = A^H + B^H$\
+Für jede $m \times n$ Matrix $A$ und $n \times p$ Matrix $B$ gilt:\
+$(AB)^T = B^T A^T$ und $(AB)^H = B^H A^H$ Für symmetrische Matrizen $A$
+und $B$ gilt:\
+$AB sym \Longleftrightarrow AB=BA$.\
+Für beliebige Matrizen gilt:\
+$A^TA$ und $AA^T$ sind symmetrisch.
+
+### Das Skalarprodukt und die Norm von Vektoren
+
+Das Skalarprodukt zweier Vektoren ist definiert durch folgendes:
+$$<x,y> := x_1y+1 + x_2y_2 + ... + x_ny_n = x^Hy = \sum_{k=1}^{n}\overline{x_k}y_k.$$
+
+#### Eigenschaften des Skalarprodukts in $\mathbb{R}^n$
+
+-   Linearität: $<x, y+z> = <x, y>+<x,z>$ und
+    $<x,\alpha y>=\alpha <x,y>$
+
+-   Symmetrie: $<x,y>=<y,x>$
+
+-   Positive Definitheit: $<x,x> \geq 0$ und
+    $<x,x>=0 \Leftrightarrow x=0$
+
+-   Aus der Linearität folgt die Bilinearität:
+    $<w+x, y> = <w,y> + <x,y>$ und $<\alpha x, y> = \alpha <x, y>$
+
+#### Eigenschaften des Skalarprodukts in $\mathbb{C}^n$
+
+-   Linearität: $<x, y+z> = <x, y>+<x,z>$ und
+    $<x,\alpha y>=\alpha <x,y>$
+
+-   Symmetrie (anders als in $\mathbb{R}^n$): $<x,y>=\overline{<y,x>}$.
+    Es ist Hermitesch.
+
+-   Positive Definitheit: $<x,x> \geq 0$ und
+    $<x,x>=0 \Leftrightarrow x=0$
+
+-   Aus dieser Linearität folgt die Sesquilinearität:
+    $<w+x, y> = <w,y> + <x,y>$ und
+    $<\alpha x, y> = \overline{\alpha} <x, y>$
+
+#### Länge, $2$-Norm, Euklidische Norm
+
+Die Läng, $2$-Norm oder Euklidische Norm eines Vektors
+$x \in \mathbb{E}^n$ ist die nicht-negative reelle Zahl
+$\mid \mid x \mid \mid$, die durch
+$\mid \mid x \mid \mid := \sqrt{<x, x>} = \sqrt{x^Hx} = \sqrt{\sum_{k=1}^{n}\overline{x_k}x_k} = \sqrt{\sum_{k=1}^{n}\mid x_k \mid ^2}$
+definiert ist.
+
+#### Cauchy-Schwarz Ungleichung
+
+Aus der Definition der Norm und den Eigenschaften des Skalarproduktes
+folgt: $$\mid<x,y>\mid \leq \mid\mid x \mid\mid \mid\mid y \mid\mid$$
+Das beiden Seiten sind genau dann gleich, wenn $y$ ein Vielfaches von
+$x$ ist.
+
+#### Eigenschaften der Norm
+
+-   positive Definitheit:
+    $\mid\mid x \mid\mid \geq 0, \forall x \in \mathbb{R}^n$ und
+    $\mid\mid x \mid\mid = 0 \Leftrightarrow x = \text{Nullvektor}$
+
+-   Sie ist dem Betrag nach homogen:
+    $\mid\mid \alpha x \mid\mid = \mid \alpha \mid \mid\mid x \mid\mid , \alpha \in \mathbb{E}, x \in \mathbb{E}^n$
+
+-   Dreiecksungleichung:
+    $\mid\mid x+y \mid\mid \leq \mid\mid x \mid\mid + \mid\mid y \mid\mid$
+
+#### Winkel zweier Vektoren
+
+Der Winkel zwischen $x,y \in \mathbb{E}^n$ ist definiert durch
+$cos \phi := \frac{Re(<x,y>)}{\mid\mid x \mid\mid \mid\mid y \mid\mid}$.
+Ist $\mathbb{E} = \mathbb{R}$, entfällt der Realteil. Zwei Vektoren sind
+orthogonal, bzw. stehen senkrecht aufeinander, wenn das Skalarpodukt
+beider Vektoren gleich Null ist.
+
+Orthogonale und Unitäre Matrizen
+--------------------------------
+
+Gilt für eine $n \times n$ Matrix $A$ $A^HA=I_n$, so wird sie unitär
+genannt. Eine entsprechende relle Matrix, für die also $A^TA=I_n$ gilt,
+heisst orthogonal. Sind zwei Matrizen $A$ und $B$ unitär bzw. orthogonal
+so gilt:
+
+-   $A$ ist regulär und $A^{-1}=A^H$
+
+-   $A * A^H=I_n$
+
+-   $A^{-1}$ ist unitär bzw. orthogonal
+
+-   $AB$ ist unitär bzw. orthogonal
+
+### Abbildungen
+
+Eine Abbildung eines Vektors $x$, die durch eine unitäre bzw.
+orthogonale Matrix $A$ definiert ist ($Ax$), ist sowohl **längentreu**
+(length-preserving), als auch **winkeltreu** (angle-preserving). Also
+gelten hierbei folgende Gleichungen: $$\begin{gathered}
+\forall x,y \in \mathbb{E}^n: \|Ax\| = \|x\| \text{(längentreu)}\\
+<Ax, Ay> = <x,y> \text{(winkeltreu)}\end{gathered}$$
+
+Lineare Gleichungssysteme
+=========================
+
+Wir betrachten $m$ Gleichungen mit $n$ Unbekannten.
+
+Anmerkungen zur Lösungsmenge
+----------------------------
+
+Wenn zwei Gleichungen dieselbe Lösungsmenge haben, heissen sie
+äquivalent.
+
+### $m=n$
+
+-   In der Regel gibt es genau eine Lösung.
+
+-   Wenn eine Gleichung als eine Summe von mehrfachen der anderen
+    Gleichungen dargestellt werden kann, gibt es eine Shar von Lösungen
+
+-   Wenn eine solche Abhängikeit zwar auf der linken, nicht aber auf der
+    rechten Seite existiert, so gibt es keine Lösung
+
+#### $m<n$
+
+-   In der Regel gibt es eine Schar von Lösungen.
+
+-   Es kann auch keine Lösung geben.
+
+-   Eine endliche Lösungsmenge ist jedoch nicht möglich.
+
+#### $m>n$
+
+-   In der Regel gibt es keine Lösung
+
+-   Wenn Abhängigkeiten zwischen den Gleichungen bestehen, kann es auch
+    eine oder mehrere Lösungen geben.
+
+Lösen von LGS mit der Gauss-Elimination
+---------------------------------------
+
+### Operationen zur Erstellung äquivalenter LGS
+
+1.  Vertauschen von Gleichungen
+
+2.  Addition/Subtraktion eines Vielfachen einer Gleichung zu/von einer
+    anderen Gleichung
+
+3.  Multiplikation einer Gleichung mit einer Zahl
+
+### Idee der Gauss Elimination
+
+Durch anwenden der Operationen soll ein äquivalentes LGS erstellt
+werden, welches einfacher zu lösen ist. Es soll eine Dreiecksgestalt
+bzw. Zeilen-Stufen-Form erschaffen werden.
+
+### Schritte zum Glück
+
+1.  Bestimme die Spalte, die am weitesten auf der Linken Seite steht und
+    nicht nur aus Nullen besteht.
+
+2.  Ist die Oberste Zahl der in Schritt 1 gefundenen Spalte eine Null,
+    wird sie mit einer anderen Zeile, sodass das Element nicht mehr Null
+    ist. Dieses neue Element nennen wir Pivot.
+
+3.  Subtrahieren ein passendes Vielfaches der obersten Zeile von den
+    anderen Zeilen, sodass die ersten Elemente in den anderen Zeilen
+    Nullen werden.
+
+4.  Wende die Schritte 1 bis 3 auf die Untermatrix an, die durch
+    Streichen der ersten Zeile entsteht.
+
+5.  Wiederhole Schritt 4 bis es nicht mehr geht.
+
+### Begriffe
+
+-   Das nach jedem Schritt weiter verkleinerte LGS heisst
+    **Restgleichungssystem**
+
+-   Die Zeile bzw. Kolonne, in der das Pivotelement steht, heisst
+    **Pivotzeile** bzw. **Pivotkolonne**.
+
+-   Eine Matrix, die durch vertauschen der Zeilen bzw. Spalten einer
+    Identitätsmatrix entsteht, heisst **Permutationsmatrix**.
+    Multipliziert man eine andere Matrix mit einer Permutationsmatrix,
+    so werden genau die Zeilen bzw. Spalten vertauscht, die auch für die
+    Erstellung der P-Matrix vertauscht wurden. Das Produkt einer
+    Permutationsmatrix $P$ und einer Matrix $A$ kann folgendermaßen
+    wirken: $PA$ vertauscht die Zeilen von $A$, $AP$ vertauscht die
+    Spalten von $A$.
+
+-   Der **Rang** einer Matrix bzw. eines LGS ist die Anzahl der
+    Pivotelemente in der Zeilen-Stufen-Form.
+
+-   Eine Matrix mit Rang gleich der Anzahl der Zeilen und Spalten wird
+    **regulär** genannt.
+
+-   Ein LGS heisst **homogen**, wenn die rechte Seite ausschliesslich
+    aus Nullen besteht. Ansonsten wird es inhomogen genannt. Ein
+    homogenens System hat immer die triviale Lösung des Nullvektors. Es
+    sind zudem immer alle VBs erfüllt.
+
+### Lösen nach dem Gaussverfahren
+
+Zur Lösung des LGS muss, nachdem das Gausssche Eliminationsverfahren
+angewandt wurde, zunächst geprüft werden, ob die
+Verträglichkeitsbedingungen erfüllt sind. Es muss also geprüft werden,
+ob es Nullzeilen in der Matrix gibt, die im Vektor keine Null sind. Erst
+wenn klar ist, dass dies nicht der Fall ist, kann das LGS durch
+Rückwärtseinsetzen gelöst werden.
+
+#### Lösungsmenge eines LGS
+
+Wichtig für die Lösungsmenge eines LGS ist der Rang des Systems.
+
+-   Wenn der Rang gleich der Zeilen des Systems, gibt es keine
+    Nullzeilen im Endschema. Daher gibt es auch keine
+    Verträglichkeitsbedingungen und das LGS hat eine Lösung.
+
+-   Ist der Rang kleiner als die Anzahl der Zeilen, so gibt es eine
+    Lösung nur dann, wenn alle Verträglichkeitsbedingungen erfüllt sind.
+
+-   Ist der Rang kleiner als die Anzahl der Spalten, so gibt es freie
+    Elemente und sofern überhaupt eine Lösung existiert, sind es
+    unendlich viele.
+
+-   Ist der Rang gleich der Anzahl an Spalten, so gibt es eine Lösung,
+    wenn die Verträglichkeitsbedingungen erfüllt sind.
+
+LR-Zerlegung
+------------
+
+Eine Zerlegung einer Matrix $A$ in die Matrizen $L$ und $R$, sodass $L$
+eine untere linke Dreiecksmatrix und $R$ eine obere rechte
+Dreiecksmatrix ist und $A=LR$ gilt, heisst **LR-Zerlegung**. $L$ muss
+hierfür auf der Diagonalen ausschließlich Einsen und über der Diagonalen
+ausschließlich Nullen enthalten, $R$ hat unterhalb der Diagonalen
+ausschließlich Nullen. Alle anderen Werte in $L$ und $R$ können frei
+gewählt werden. Für eine $m \times n$ Matrix $A$ hat ist $L$ eine
+$m \times m$ Matrix und $R$ eine $m \times n$ Matrix. Eine LR-Zerlegung
+ist sinnvoll, da man mit ihr zu verschiedenen $b$-Vektoren das
+Gleichungssystem $Ax=b$ schnell lösen kann.
+
+### Erstellen einer LR-Zerlegung mit der Gauss-Elimination
+
+Für das Erstellen einer LR-Zerlegung der Matrix $A$ kann der Gauss
+Algorithmus angewandt werden. Das Verfahren geschieht durch die
+folgenden Schritte:
+
+1.  Zunächst wird die Matrix $A$ als Produkt von drei Matrizen $P^T=I$,
+    $L=I$, und $R=A$ dargestellt.
+
+2.  Nun wird eine **Pivotisierung** von $R$ durchgeführt. Das heisst,
+    die erste Zeile wird mit der Zeile vertauscht, in der das grösste
+    Element der ersten Spalte von $R$ steht. Diese Vertauschung muss
+    durch eine Vertauschung derselben Zeilen in $P^T$ "ausgeglichen"
+    werden.
+
+3.  Nun wird ein passendes Vielfaches der ersten Zeile von den anderen
+    Zeilen abgezogen, sodass in der ersten Spalte von $R$ bis auf die
+    oberste Zeile nur Nullen stehen. Die Faktoren, mit denen die erste
+    Zeile multipliziert wurde, werden unter die $1$ in der ersten Spalte
+    von $L$ geschrieben.
+
+4.  Wie bei der Gauss-Elimination werden die Schritte 2 und 3 solange
+    wiederholt, bis es nicht mehr möglich ist.
+
+Das Ergebnis dieses Verfahrens ist die Darstellung von $A$ als
+$A=P^TLR$.
+
+### Verwenden der LR-Zerlegung zum Lösen des LGS
+
+Das Lösen eines LGS $Ax=b$ mithilfe einer LR-Zerlegung $A=P^TLR$ ist in
+zwei Schritten möglich.
+
+1.  Zunächst wird das LGS $Ly=Pb$ mit $y=Rx$ gelöst. Hierbei wird der
+    Vektor $y$ als Vektor der Unbekannten des LGS angesehen.
+
+2.  Dann wird das LGS $Rx=y$ mit den im ersten Schritt berechneten
+    Werten für $y$ gelöst.
+
+Vektorräume
+===========
+
+In der Schule gelerntes und erste Beispiele
+-------------------------------------------
+
+In der Schule wurden zwei Operationen mit Vektoren eingeführt: Die
+Addition zweier Vektoren und Multiplikation eines Vektors mit einer
+Zahl. Dabei gelten für die Vektoren $x$ , $y$ und $z$ , sowie die
+Skalare $\alpha$ und $\beta$ die folgenden acht Rechenregeln:
+$$\begin{gathered}
+x+y=y+x\\
+(x+y)+z = x+(y+z)\\
+x+0=x \text{ Wobei $0$ der Nullvektor ist.}\\
+x + -x = 0 \text{ Wobei $-x$ der zu $x$ entgegengesetzte Vektor ist.}\\
+\alpha(x+y) = \alpha x + \alpha y\\
+(\alpha\beta) x = \alpha (\beta x)\\
+(\alpha + \beta)x = \alpha x + \beta x\\
+1*x = x\end{gathered}$$ Es gibt jedoch noch andere Objekte, die sich
+addieren und mit Zahlen multiplizieren lassen, sodass die obigen
+Rechenregeln gelten. Dazu gehören der "Vektorraum" $\mathbb{R}^n$und
+$\mathbb{C}^n$, aber auch $\mathbb{R}^{m\times n}$ oder Funktionen.
+
+### Funktionen
+
+Ein Vektorraum der Funktionen kann definiert werden als:
+$V=F(\mathbb{R}, \mathbb{R}):=\{f:\mathbb{R} \rightarrow \mathbb{R} \mid \text{ }f\text{ ist eine Abbildung}\}$.
+Funktionen sind hierbei immer Abbildungen, die jedem Element des
+Definitionsbereiches ein Element aus dem Bild-/Wertebereich zuordnen.
+Man kann mit Funktionen rechnen. Dabei gilt folgendes für zwei
+Funktionen $f,g \in V$ und einem Skalar $\alpha \in \mathbb{R}$:
+
+Addition
+
+:   $(f+g)(s) := f(s)+g(s)$
+
+Multiplikation mit Skalar
+
+:   $(\alpha f)(s) := \alpha f(s)$
+
+Mit dieser Definition gelten alle acht Rechenregeln, die auch für
+Vektoren gelten.
+
+Definition Vektorräume
+----------------------
+
+Ein Vektorraum $V$ über $\mathbb{E}$ ist eine nicht-leere Menge auf der
+eine Addition (eine innere Operation) und eine skalare Multiplikation
+(äußere Operation) definiert ist, sodass folgende Axiome gelten:
+
+### Axiome für $(V, +, *)$
+
+$$\begin{gathered}
+x+y=y+x\\
+(x+y)+z = x+(y+z)\\
+x+0=x \text{ Wobei $0$ der Nullvektor ist.}\\
+x + -x = 0 \text{ Wobei $-x$ der zu $x$ entgegengesetzte Vektor ist.}\\
+\alpha(x+y) = \alpha x + \alpha y\\
+(\alpha\beta) x = \alpha (\beta x)\\
+(\alpha + \beta)x = \alpha x + \beta x\\
+1*x = x\end{gathered}$$ Hierbei folgt aus $(1)$ bis $(4)$, dass $(V,+)$
+eine ablesche Gruppe ist.
+
+### Begriffe
+
+Die Elemente von $V$ heissen Vektoren. Der Vektor $0 \in V$ heisst
+Nullvektor. Die Elemente von $\mathbb{E}$ werden als Skalare bezeichnet.
+
+-   Ein Vektorraum ist immer abgeschlossen bzgl. der Addition und
+    Skalarmultiplikation.
+
+-   Durch die Axiome kann man mit den Vektoren des Vektorraums $V$
+    besonders schön rechnen :)
+
+### Schönes Rechnen
+
+Sei $V$ ein Vektorraum über $\mathbb{E}$. Sei $x,y \in V$ und
+$\alpha \in \mathbb{E}$. Dann gilt folgendes: $$\begin{gathered}
+y+x = x \Rightarrow y=0 \in V\\
+0*x=0\\
+\alpha 0 = 0\\
+(-\alpha) x = \alpha (-x) = - (\alpha x)\\
+\forall x,y \in V \exists z \in V: x+z=y \text{ wobei $z$ eindeutig ist und zwar } z:=y+(-x)\end{gathered}$$
+
+### Subtraktion
+
+In einem Vektorraum $V$ ist die Subtraktion zweier Vektoren $x,y \in V$
+definiert durch $y-x = y+(-x)$.
+
+Unterräume und Erzeugendenräume
+-------------------------------
+
+Eine nicht-leere Teilmenge $U$ eines Vektorraums $V$ heisst Unterraum
+(subspace), falls sie bezüglich der Addition und skalaren Multiplikation
+abgeschlossen ist. Hierbei sind die Addition und skalare Multiplikation
+in $U$ gleich definiert, wie in $V$. Ein Unterraum ist also stets selbst
+ein Vektorraum. Durch diese Definitoin lässt ich durch die
+Multiplikation zweier Elemente des Unterraumes und die
+Skalarmultiplikation testen, ob ein Unterraum tatsächlich einer ist.
+
+Jeder Vektorraum hat immer die trivialen Unterräume sich selbst und die
+Menge, die nur aus dem Nullelement besteht.
+
+Ist $A \in \mathbb{R}^{m \times n}$ eine reelle Matrix, so ist
+$\mathcal{L}_0 := \{x \in \mathbb{R}^n \mid Ax =0\}$ ein Unterraum von
+$\mathbb{R}^n$. Die Lösungsmenge
+$\mathcal{L}_b := \{x \in \mathbb{R}^n \mid Ax =b\}$ ist im allgemeinen
+kein Unterraum.
+
+Es seien $V$ ein Vektorraum über $\mathbb{E}$ und
+$a_1, a_2, ..., a_l \in V$ ausgewählte Vektoren. Ein Vektor de Form
+$x := \gamma_1a_1 + \gamma_2a_2 + ... + \gamma_la_l = \sum_{i=1}^l\gamma_ia_i$
+mit $\gamma_1,...,\gamma_l \in \mathbb{E}$ heisst eine Linearkombination
+von $a_1, a_2, ..., a_l$. Die Gesamtheit der Linearkombinationen von
+$a_1, a_2, ..., a_l$ ist ein Unterraum. Dieser Vektorraum heisst von
+$a_1, a_2, ..., a_l$ aufgespannter oder erzeugter Unterraum bzw. Lineare
+Hülle. Dieser wird mit $span\{a_1,...,a_l\}$bezeichnet. Die Vektoren
+$a_1,...,a_l$ heissen in diesem Zusammenhang Erzeugendensystem. Das
+Erzeugendensystem spannt also den Vektorraum auf, das heisst
+$span{v_1,...,v_n} = V$.
+
+Ist $S \subset V$ eine unendliche Menge von Vektoren, dann ist
+$span\{S\}$die Gesamtheit aller Linearkombinationen endlich vieler
+Vektoren aus $S$. Hier ist $S$ das Erzeugendensystem.
+
+Erzeugendensysteme sind nicht eindeutig!
+
+Lineare Abhängigkeit, Basen, Dimension
+--------------------------------------
+
+Die Vektoren $a_1, a_2, ..., a_l \in V$ heissen linear abhängig, falls
+es Skalare $\gamma_1,...\gamma_l$ gibt, die nich alle Null sind und für
+die gilt $\gamma_1a_1 + ... + \gamma_la_l = 0$. Andernfalls heissen
+$a_1, a_2, ..., a_l$ linear unabhängig. Die $l \geq 2$ Vektoren
+$a_1, a_2, ..., a_l$ sind genau dann linear abhängig, wenn sich einer
+dieser Vektoren als Linearkombination der anderen schreiben lässt.
+
+Ein Erzeugendensystem $B$ des Vektorraums $V$ aus linear unabhängigen
+Vektoren $b_1,...,b_n$ heisst Basis von $V$. Eine Basis
+$B={b_1,...,b_n}$ ist damit zum einen erzeugend und zum anderen linear
+unabhängig.
+
+Für den Vektorraum $V=\mathbb{R}^n$, die Vektoren $a_1,...,a_k \in V$
+und die Matrix $A=(a_1 ... a_k) \in \mathbb{R}^{n \times k}$ mit Rang
+$r$ gelten folgende Äquivalenzen:
+
+-   $a_1,...,a_k$ ist erzeugend $\equiv$ $Ax=b$ ist für jedes $b$ lösbar
+    $\equiv$ $r=n$
+
+-   $a_1,...,a_k$ ist linear unabhängig $\equiv$ $Ax=0$ hat nur die
+    triviale Lösung $\equiv$ $r=k$
+
+-   $a_1,...,a_k$ ist eine Basis von V $\equiv$ $Ax=b$ ist für jedes $b$
+    eindeutig lösbar, $A$ ist regulär $\equiv$ $r=k=n$
+
+-   $a_1,...,a_k$ ist linear abhängig $\equiv$ $Ax=0$ hat nichttriviale
+    Lösungen $\equiv$ $r<k$
+
+Gibt es zu einem VR ein endliches Erzeugendensystem, so gibt es auch
+eine Basis, die eine Teilmenge des Erzeugendensystems ist. Ein solcher
+VR wird als endlich dimensional bezeichnet. Daher lässt sich jedes
+Erzeugendensystem zu einer Basis reduzieren, indem Stück für Stück je
+ein Vektor entfernt wird, der als LK der anderen Vektoren dargestellt
+werden kann.
+
+Die Zahl der Basisvektoren eines VRs mit endlichem Erzeugendensystem
+heisst Dimension des VRs und wird $dim(V)$ geschrieben. Man sagt auch
+$V$ ist $n$-dimensional.
+
+Ist $\{b_1,...,b_m\}$ein ES von $V$, so ist jede Menge von mehr als $m$
+Vektoren aus $V$ linear abhängig.
+
+Man kann jede Menge linear unabhängiger Vektoren aus einem endlich
+dimensionalen VR zu einer Basis des VRs ergänzen.
+
+Jede Menge linear unabhängiger Vektoren der Kardinalität der Dimension
+des VRs ist eine Basis.
+
+### Koordinaten in endlich dimensionalen Vektorräumen
+
+Die Koeffizienten einer Linearkombination der Vektoren der Basis eines
+VRs eines Vektors in einem Vektorraum sind eindeutig bestimmt und bilden
+den Koordinatenvektor.
+
+### Komplementäre Unterräume
+
+Zwei Vektorräume $U$ und $U\prime$ eines Vektrorraumes $V$ mit der
+Eigenschaft, dass jedes $x \in V$eine eindeutige Darstellung
+$x=u+u\prime$ mit $u \in U$, $u\prime \in U\prime$ hat, heissen
+komplementär (complementary). Wir nennen $V$ die direkte Summe von $U$
+und $U\prime$ und schreiben $V=U \oplus U\prime$. Hierbei ist die
+Schnittmenge von $U$ und $U\prime$ die Menge mit dem Nullvektor als
+einziges Element. Im Allgemeinen lassen sich Vektorräume als direkte
+Summe mehrerer Unterräume darstellen.
+
+### Basiswechsel und Koordinatentransformation
+
+Sei $B=\{b_1,...,b_n\}$ eine gegebene (alte) geordnete Basis des
+Vektorraums $V$. Wählen wir eine neue geordnete Basis
+$B\prime=\{b_1\prime, ..., b_n\prime\}$, so lassen sich alle Vektoren in
+$V$ sowohl als Linearkombination von $B$, als auch von $B\prime$
+darstellen. Es stellt sich nun die Frage, wie $B$ und $B\prime$
+zusammenhängen. Wir wollen also jeden Vektor in $B\prime$ in der alten
+Basis $B$ darstellen. Um dieses Problem zu lösen definieren wir die
+Matrix $T$, in der jeder Kolonnenvektor der Koordinatenvektor eines
+Basisvektors aus $B\prime$ in bezüglich der Basis $B$ ist. Es gilt also
+$T=([b_1\prime]_B, ..., [b_n\prime]_B)$. Die Matrix $T$ heisst hier die
+**Transformationsmatrix des Basiswechsels**. In der $k$-ten Kolonne von
+$T$ stehen die Koordinates de $k$-ten neuen Basisvektors bzgl. der alten
+Basis.
+
+Sei $\xi = (\xi, ..., \xi_n)^T = [x]_B$ der Koordinatenvektor bzgl. der
+Basis $B$ eines beliebigen Vektors $x \in V$ und
+$\xi\prime = (\xi_1\prime, ..., \xi_n\prime)^T = [x]_B\prime$ der
+Koordinatenvektor von $x$ bzgl. der Basis $B\prime$. Dann gilt für diese
+Koordinatentransformation $\xi = T\xi\prime$, wobei $T$ die
+Transformationsmatrix des Basiswechsels ist. Da $T$ immer regulär ist,
+gilt auch $\xi\prime = T^{-1}\xi$.
+
+Lineare Abbildungen
+-------------------
+
+Seien $X,Y$ zwei Vektorräume und $F: X \rightarrow Y$ eine Abbildung. Dann ist die Menge $F(X) := \{F(x) \in Y \mid x\in X\} \subseteq Y$ der Wertebereich oder Bild von $F$ und wird auch als $ImF$ bezeichnet. Wie für andere Abbildungen gelten auch hier die Begriffe injektiv, surjektiv und bijektiv. Daher gilt auch hier, dass sofern $F$ bijektiv ist, die inverse Abbildung $F^{-1}$ definiert ist. Im Allgemeinen bezeichnet der Ausdruck $F^{-1}(Z), Z \subset Y$ für eine Teilmenge von $Y$ die Menge der Urbilder von Elementen $z \in Z \subseteq Y$. Es gilt: $F^{-1}(Z) := \{x \in X \mid F{x} \in Z \} \subseteq X$.
+
+Eine Abbildung $F: X \rightarrow Y​$ heisst linear, wenn folgendes für alle $x,x\prime \in X, \gamma \in \mathbb{E}​$ gilt: 
+$$
+F(x+{_X} x\prime) = F(x) +{_Y} F(x\prime)\\
+F(\gamma*_{X}x) = \gamma*_{Y}F(x)
+$$
+Wobei $+_{X}$ und $*_{X}$ die Addition bzw. Skalare Multiplikation von $X$ sind.
+
+### Abbildungsmatrizen
+
+Jede lineare Abbildung $F:X\longrightarrow Y$ lässt sich auch als Matrix
+darstellen. Dazu wählt man die Basen $B$ für $X$ und $C$ für $Y$. Seien
+$[x]_B=(\xi_1,...,\xi_n)^T$ und $[y]_C=[F(x)]_C=(\eta_1,...,\eta_n)^T$
+die Koordinatenvektoren von $x$ und $y=F(x)$ bezüglich der Basen $B$
+resp. $C$, so gilt: $[y]_C=A[x]_B$, wobei $A=([Fb_1]_C, ..., [Fb_n]_C)$.
+Die Spalten von $A$ sind also die Koordinatenvektoren von $Fb_i$
+bezüglich der Basis $C$. Die Abbildungsmatrix einer Abbildung auf einem
+Vektorraum mit zwei unterschiedlichen Basen ist die
+Transformationsmatrix der entsprechenden Koordinatentransformation.
+
+### Isomorphismus und Automorphismus
+
+Eine bijektive Abbildung von $X$ auf $Y$ heisst **Isomorphismus**. Wenn
+$X=Y$, so spricht man von einem **Automorphismus**. Wenn
+$F:X\longrightarrow Y$ ein Isomorphismus ist, ist
+$F^{-1}: Y \longrightarrow X$ die inverse Abbildung. Die Umkehrabbildung
+$F^{-1}$ einer Abbildung $F$, die durch die Matrix $A$ dargestellt wird,
+lässt sich durch $A^{-1}$ darstellen.
+
+### Kombination linearer Abbildungen
+
+Liegt die Bildmenge einer Abbildung $F$ im Definitionsbereich einer
+Abbildung $G$, so lassen sich die Abbildungen zusammensetzen zur
+Komposition $G \circ F$ ("G nach F"). Dabei gilt folgendes: Sind $X,Y,Z$
+Vektorräume über $\mathbb{E}$ und $F: X \longrightarrow Y$ mit der
+Abbildungsmatrix $A$ und $G: Y \longrightarrow Z$ mit der
+Abbildungsmatrix $B$ lineare Abbildungen, so ist auch
+$G \circ F: X \longrightarrow Z$ linear. Die Abbildungsmatrix von
+$G \circ F$ ist $BA$.
+
+### Kern, Bild und Rang
+
+Sei $F:X\longrightarrow Y$ eine lineare Abbildung, wobei $dim(X)=n$ und
+$dim(Y)=m$, so ist das **Bild** definiert als
+$Im(F) := \{F(x) \mid x \in X \} \subseteq Y$. Der **Kern** (Kernel) von
+$F$ ist das Urbild von $0_Y \in Y$ definiert als
+$ker(F) := \{x \in X \mid F(x) = )_Y\} \subseteq X$. $ker(F)$ ist stets
+ein Unterraum von $X$ und $Im(F)$ ist ein Unterraum von $Y$.
+
+Sei $F:X\longrightarrow Y$ eine lineare Abbildung und $U$ ein Unterraum
+von $X$, so ist $Im(U)$ ein Unterraum von $Y$. Ist $W$ hier ein
+Unterraum von $Im(F)$, so ist dessen Urbild ein Unterraum von $X$.
+
+Sei $A$ eine $m\times n$ Matrix und
+$F: \mathbb{E}^n \longrightarrow \mathbb{E}^m$ die durch $A$ definierte
+Abbildung, dann ist
+$ker(F) = \{x \in \mathbb{E}^n \mid Ax=0\}=\mathcal{L}_0$ die
+Lösungsmenge des homogenen Gleichungssystems $Ax=0$ und wird als
+**Nullraum** (Nullspace) bezeichnet und $\mathcal{N}(F)$ geschrieben. Hier gilt auch :
+$$
+\begin{align*}
+Im(A) = \{Ax \mid x \in \mathbb{E}^n\} \subset \mathbb{E}^m\\
+= \{\bar a_1x_1,+...+\bar a_n x_n \mid \mathbb{E}\}\\
+= span\{\bar a_1,..., \bar a_n\}\\
+= \text{der von den Kolonnen von $A$ aufgespannte Unterraum}
+\end{align*}
+$$
+Dieser Unterraum heisst auch Kolonnenraum von $A$ und wird mit $R(A)$ bezeichnet. Das LGS $Ax=b$ ist genau dann lösbar, wenn $b$ im Kolonnenraum von $A$ liegt.
+
+##### Satz 5.6
+
+Die lineare Abbildung $F: X \longrightarrow Y $ ist genau dann injektiv, wenn $ker(F)=\{0\}$. 
+
+##### Satz 5.7 (Dimensionsformel)
+
+Es gilt: $dim(X) = dim(ker(F)) + dim(Im(F))$
+
+##### Definition: Rang einer linearen Abbildung
+
+Der Rang einer linearen Abbildung ist gleich der Dimension des Bildraumes: $Rang(F) = dim(Im(F))$
+
+##### Korollar 5.8: Äquivalenzen
+
+$$
+\begin{align}
+F: X\longrightarrow Y \text{ ist injektiv } &\Longleftrightarrow Rang(F) = dim(X)\\
+F: X\longrightarrow Y \text{ ist bijektiv } &\Longleftrightarrow Rang(F) = dim(X) = dim(Y)\\
+F: X\longrightarrow X \text{ ist bijektiv } &\Longleftrightarrow Rang(F) = dim(X) \Longleftrightarrow ker(F)=\{0\}\\
+\end{align}
+$$
+
+##### Definition 
+
+Zwei Vektorräume $X$ und $Y$ heissen isomorph, wenn es einen Isomorphismus $F: X\longrightarrow Y$ gibt. 
+
+##### Satz 5.9 
+
+Zwei Vektorräume endlicher Dimension $Z$ und $Y$ sind isomorph genau dann, wenn sie dieselbe Dimension haben.
+
+### Matrizen als lineare Abbildungen
+
+##### Satz 5.11
+
+Sei $A$ eine $m \times n$ Matrix, dann kann sie als Abbildung $A: \mathbb{E}^n \longrightarrow \mathbb{E}^m, x\rightarrow Ax$ interbretiert werden. Hierfür gilt:
+$$
+ker(A) = \mathcal{N}(A) = \mathcal{L}_0 = \{x \mid AX=0\}\\
+dim(A) = span\{\bar a_1,...,\bar a_n\} = R(A) = \text{ Kolonnenraum von A}\\
+Ax = b \text{ ist lösbar } \Longleftrightarrow b \in span\{\bar a_1,...,\bar a_n\} \Longleftrightarrow b \in Im(A) = R(A)
+ker(A) = \mathcal{N}(A) \subset \mathbb{E}^n\\
+Im(A) = R(A) \subset \mathbb{E}^m
+$$
+
+---
+
+Nun ist es interessant die Dimensionen der Unterräume $\mathcal{N}(A)$ und $R(A)$ zu bestimmen. Wir wissen, dass der Kern von A gleich der Lösungsmenge des homogenen gleichungssystems $Ax=0$ ist. Diese Lösungsmenge hat $n-r$ frei wählbare Parameter, wobei $r$ die Anzahl der Pivotelemente ist, die beim Gaussverfahren auftreten. Wir formen also $A$ durch das Gaussverfahren um in die Zeilenstufenform $R$. 
+
+Wir können ohne Einschränkung der Allgemeinheit annehmen, dass die freien Parameter am Ende (letzte Kolonnen) auftreten. Dies ist durch umnimmerierung der unbekannten sowoeso möglich. Nun kann man auf genau $n-r$ Möglichkeiten einen freien Parameter gleich 1 und alle anderen gleich null setzen (One-hot-Vektoren). Der $(n-r)$-te Lösungsvektor $u_{n-r}$ lässt sich jetzt bestimmen durch Rückwärtseinsetzen des $(n-r)$-ten One-hot-Vektors.
+
+---
+
+##### Definition: Zeilenraum
+
+Der von den Zeilenvektoren einer Matrix $A$ aufgespannte Vektorraum wird als Zeilenreum vo $A$ bezeichnet.
+
+##### Satz 5.13
+
+Der Rang einer $m\times n$ Matrix $A$ ist:
+
+* die Anzahl der Pivotelemente bei der REduktion von A zur Zeilenstufenform
+* Der Rang der linearen Abbildung $A: x \longrightarrow Ax$  und damit $dim(Im(A))$
+* Die Dimension des Kolonneraums von $A$, also gleich der Anzahl linear unabhängiger Kolonnen von $A$
+* Die Dimension des Zeilenraums, also gleich der Anzahl linear unabhängiger Zeilen von $A$
+
+Hierbei ist zu beachten, dass zwar die Dimensionen der Bildräume von A und der Zeilenstufenform gleich sind, die Bildräume / Kolonnenräume selbst aber nicht.
+
+##### Korollar 5.14
+
+$Rang(A^T) = Rang(A^H)=Rang(A)$
+
+##### Satz 5.15 
+
+Für den Kolonnenraum einer $m \times n$ Matrix $A$ gilt:
+$$
+Im(A) = R(A) = span\{\overline{a_1},...,\overline{a_n}\} = span\{a_{n_1},...,a_{n_r}\}
+$$
+wobei $a_{n_1}, ..., a_{n_r}$ die Pivotkolonnen von $A$ sind.
+
+##### Satz 5.16
+
+Sei $A \in \mathbb{E}^{m \times n}, B \in \mathbb{E}^{p \times m}$. Dann gilt:
+$$
+Rang(BA) \leq min\{Rang(B), Rang(A)\}\\
+Rang(B) = m \leq p \Longrightarrow Rang(BA) = Rang(A)\\
+Rang(A) = m \leq n \Longrightarrow Rang(BA) = Rang(B)
+$$
+
+##### Korollar 5.17
+
+Sei $A \in \mathbb{E}^{m \times m}, B \in \mathbb{E}^{m \times m}$. Dann gilt:
+$$
+Rang(BA) \leq min\{Rang(B), Rang(A)\}\\
+Rang(B) = m \Longrightarrow Rang(BA) = Rang(A)\\
+Rang(A) = m \Longrightarrow Rang(BA) = Rang(B)
+$$
+
+
+##### Satz 5.18: Äquivalenzen
+
+Für eine quadratische Matrix $A \in \mathbb{E}^{n \times n}$ sind folgende Aussagen Äquivalent:
+
+* A ist invertierbar
+* A ist regulär
+* Rang von $A$ ist gleich $n$
+* die $n$ Kolonnenvektoren von $A$ sind linear unabhängig
+* die $n$ Zeilenvektoren von $A$ sind linear unabhängig
+* $Im(A) = R(A) = \mathbb{E}^n$
+* $ker(A) = \mathcal{N}(A) = \{0\}$
+* die lineare Abbildung $A: \mathbb{E}^n \longrightarrow \mathbb{E}^n$ ist ein Automorphismus
+* $A$ ist die Reansformationsmatrix einer Koordinatemtransformation in $\mathbb{E}^n$
+
+### Affine Räume und die allgemeine Lösung eines inhomogenen Gleichungssystems $Ax=b$
+
+##### Definition
+
+Sei $U$ ein echter Unterraum eines Vektorraums $V$ und $u_0 \in V$. Die Menge $u_0+U := \{u_0+u \mid u \in U\}$ wird affiner Teilraum genannt. Ist $F: X \longrightarrow Y$ eine lineare Abbildung und $y_0 \in Y$, so ist $H:X \longrightarrow y_0+Y$ eine affine Abbildung.
+
+Im Allgemeinen sind affine Teilräume keine Unterräume und affine Abbildungen keine linearen Abbildungen.
+
+#### Zusammenhang mit LGS
+
+Sei $Ax=b$ und $\mathcal{L}_b=\{x \mid Ax=b\}$. $\mathcal{L}_b$ ist zwar kein Unterraum, aber ein affiner Teilraum. 
+
+##### Satz 5.19
+
+Sei $x_p$ eine Lösung des inhomogenen Systems $Ax=b$ und $\mathcal{L}_0$ der Lösungsraum des homogenen Systems $Ax=0$. Dann ist die Lösungsmenne $\mathcal{L}_b$ gleich dem affinen Teilraum $\mathcal{L}_b=x_p+\mathcal{L}_0$. Hier ist $x_p$ eine Partikularlösung. 
+
+Aus diesem Satz folgt, dass alle Lösungen $x$ des inhomogenen LGS $Ax=b$ dargestellt werden können als $x=x_p+x_h$, wobei x_p eine spezielle Lösung von $Ax=b$ und $x_h$ eine Lösung von $Ax=0$ ist. $x_p$ kann durch Rückwärtseinsetzen in die Zeilenstufenform, in der alle freien Variablen auf Null gesetzt sind, gefunden werden.
+
+Hat man ein LGS $Ax=b$ kann dies also durch die folgenden Schritte gelöst werden:
+
+1. Umformen in Zeilenstufenform
+2. Errechnen des Kerns von $A$, durch Rückwärtseinsetzen, wobei immer ein freier Parameter auf 1, alle anderen auf 0 gesetzt wird. Es entstehen dabei so viele Vektoren, wie es freie Paramter gibt. Der Kern wird von diesen Vektoren aufgespannt.
+3. Errechnen von $x_p$, durch Rückwärtseinsetzen, wobei alle freien Parameter auf 0 gesetzt sind.
+4. Nun gilt: $\mathcal{L}_b=x_p+ker(A) = x_p+span\{\text{Vektoren aus 2.}\}$
+
+### Abbildungsmatrix bei Koordinatentransformation
+
+Im Folgenden geht es um den Zusammenhang zwischen zwei Abbildungsmatrizen $A, B$ einer linearen Abbildung $F: X\longrightarrow Y$ mit zwei verschiedenen Basen.
+
+![Abbildungsmatrix_Koordinatentransformation](/Users/tobiasscheithauer/Library/Mobile Documents/com~apple~CloudDocs/Studium/Zusammenfassungen/LinAlg_ressources/Abbildungsmatrix_Koordinatentransformation.jpg)
+
+## Vektorräume mit Skalarprodukt
+
+##### Definition: Norm
+
+Eine Norm in einem Vektorraum $V$ über $\mathbb{E}$ ist eine Funktion $||.|| : V \longrightarrow R$ mit den Eigenschaften N1, N2, N3:
+
+* N1: positiv definit: $\forall x \in V ||x|| \geq 0$
+* N2: homogen: $||\alpha x|| = |\alpha| * ||x||$
+* N3: Dreiecksungleichung: $\forall x,y \in V ||x+y|| \leq ||x||+||y||$
+
+Ein Vektorraum mit einer Norm hiess normierter Vektorraum oder auch normierter linearer Raum.
+
+##### Definition: Skalarprodukt
+
+Ein Skalarprodukt in einem Vektorraum $V$ über $\mathbb{E}$ ist eine Funktion $<.,.>: V\times V \longrightarrow \mathbb{E}$ mit den Eigenschaften:
+
+* S1: Linear im zweiten Faktor: $\forall x,y,z \in V: <x, y+x> = <x,y>+<x,z>$ und $\forall x,y \in V, \alpha \in \mathbb{E}: <x,\alpha y>=\alpha <x,y>$
+* S2: Falls $\mathbb{E}=\mathbb{R}$: ist es symmetrisch: $<x,y>=<y,x>$, falls $\mathbb{E}=\mathbb{R}$ ist es hermitesch: $$<x,y>=\overline{<y,x>}$$
+* S3: positiv definit: $<x,x> \geq 0$. Falls $x=0$ ist, gilt $<x,x>=0$
+
+Ein endlich dimensionaler Vektorraum wird auch euklidischer oder orthogonaler Vektorraum genannt ($\mathbb{E}=\mathbb{R}$), falls $\mathbb{E}=\mathbb{C}$ nennt man ihn unitär.
+
+##### Definition
+
+In einem Vektorraum mit Skalarprodukt kann man die Norm bzw. Länge eines Vektors $x$ definieren als: $\|x\| := \sqrt{<x,x>}$, wobei $<x,x>$ das Skalarprodukt in dem Vektorraum ist.
+
+##### Definition: Gewichtetes Skalarprodukt
+
+Sei $W$ eine diagonale Matrix mit $w+{ij}>0$, dann ist $<x,y>:=x^HWy$ das gewichtete Skalarprodukt.
+
+##### Satz ?.??
+
+Sei $V$ ein Vektorraum über $\mathbb{E}, dim(V)<\infty$. Dann kann man immmer ein Skalarpordukt definieren. 
+
+##### Satz 6.1 Cauchy-Schwarz-Ungleichung
+
+$$
+\forall x,y \in V: |<x,y>| \leq \|x\|*\|y\|
+$$
+
+##### Definition: Winkel
+
+Der Winkel $\varphi = \angle(x,y) , (0\leq\varphi\leq\pi)$ zwischen $x,y \in V$ ist gegeben durch:
+$$
+\angle(x,y)=\varphi:=arccos(\frac{Re(<x,y>)}{\|x\|\|y\|})
+$$
+Falls $\mathbb{E}=\mathbb{R}$, kann der Realteil weggelassen werden.
+
+##### Definition orthogonal
+
+Zwei Vektoren sind zueinander orthogonal oder senkrecht (perpendicular), falls das Skalarprodukt der Vektoren 0 ist. Zwei Teilmengen eines Vektorraumes werden orthogonal genannt, falls alle Vektoren der einen Menge orthogonal zu allen Vektoren der anderen Teilmenge sind.
+
+##### Satz 6.2 (Pythagoras)
+
+Sei $V$ ein Vektorraum mit Skalarpodukt. Wenn zwei Vektoren $x,y \in V$ orthogonal zueinander sind, gilt: $\|x\pm y\|^2 = \|x\|^2 + \|y\|^2$
+
+### Orthonormalbasen
+
+##### Satz 6.3
+
+Eine Menge $M$ paarweise orthogonaler Vektoren ist linear unabhängig, falls $0 \notin M$. 
+
+Sei $V$ ein Vektorraum und $dim(V)=n$, dann bilden $n$ paarweise orthogonale, von $0$ verschiedene Vektoren eine Basis von $V$.
+
+##### Definition 
+
+Eine Basis $\{b_1, b_2,..., b_n\}$ heisst orthogonal, falls alle Vektoren paarweise orthogonal zueinander sind. Eine Basis heisst orthonormal, wenn zusätzlich alle Vektoren die Länge 1 haben. Jede orthogonale Basis lässt sich also durch Normierung der einzelnen Vektoren in eine orthonormale Basis überführen.
+
+##### Das Kronecker-Symbol / Kronecker-$\delta$
+
+Das Kronecker-Delta ist definiert durch:
+$$
+\delta_{kl} := \begin{cases}0, & \text{falls } k\neq l\\ 1, & \text{falls } k = l  \end{cases}
+$$
+für eine orthonormale Basis gilt also: $<b_k,b_l> = \delta_{kl}$.
+
+##### Satz 6.4
+
+Ist $V$ eine Vektorraum mit Skalarprodukt, $dim(V)=n$ und $\{b_1,...,b_n\}$ eine Orthonormalbasis, so gilt für alle $x \in V$: $x=\sum_{k=1}^n<b_k,x>b_k$. Das heisst die Koordinaten von $x$ bzgl. einer Orthonormalbasis sind $\xi_k=<b_k,x>$.
+
+##### Satz 6.15 Parsevalsche Formel
+
+Sei $\{b_1,...,b_n\}$ eine Orthonormalbasis von $V$ und $x,y \in V$. Sei zusätzlich $\xi_k := <b_k,x>_V$ und $\eta_k:= <b_k,y>_V$ für alle $k=1,...,n$. (Koordinaten). Dann gilt: 
+$$
+<x,y>_V=\sum_{k=1}^n\overline{\xi_k}\eta_k=\xi^H\eta=<\xi,eta>_{\mathbb{E}^n}
+$$
+Das heisst, das Skalarprodukt zweier Vektoren in $V$ ist gleich dem euklidischen Skalarprodukt ihrer Koordinatenvektoren in $\mathbb{E}^n$.
+
+##### Algorithmus 6.1 Gram-Schmidt-Orthogonalisierungsverfahren
+
+Sei $\{a_1,...,a_n\}$ eine linear unabhängige Menge von Vektoren. Mithilfe der folgenden rekursiven Methode lässt sich eine gleich große Menge $\{b_1,...,b_n\}$ berechnen:
+$$
+\begin{align*}
+&b_1 := \frac{a_1}{\|a_1\|}\\
+&\text{für } k=2,...,n \text{ :}\\
+&\tilde b_k := a_k - \sum_{j=1}^{k-1}<b_j,a_k>b_j\\
+&b_k := \frac{\tilde b_k}{\|\tilde b_k \|}
+
+\end{align*}
+$$
+
+##### Satz 6.6
+
+Die Vektoren $b_1,...,b_n$ sind normiert und paarweise orthogonal. Nach $k$ Schritten gilt: $span(a_1,...,a_n)=span(b_1,...,b_n)$. Ist $\{a_1,...,a_n\}$ eine Basis von $V$, so bilden die berechneten Vektoren eine Orthonormalbasis.
+
+##### Korollar 6.7
+
+In jedem Vektorraum mit Skalarprodukt $V$, $dim(V)<\infty$ gibt es eine orthonormierte Basis.
+
+### Orthogonale Komplemente
+
+##### Korollar 6.8
+
+In einem Vektorraum endlicher Dimension lässt sich jede Menge orthogonaler Vektoren zu einer Basis ergänzen.
+
+##### Erinnerung (Ich erinnere mich nicht...)
+
+Sei $V$ ein Vektorraum und $U_1,U_2 \subset V$ Unterräume. $U_1$ und $U_2$ heissen komplementär, wenn wenn es $\forall x \in V$ eine eindeutige Darstellung als $x=x_1+x_2$ mit $x_1 \in U_1, x_2\in U_2$ gibt. Es gilt $V=U_1\oplus U_2$ und man sagt, $V$ ist die direkte Summe von $U_1$ und $U_2$. 
+
+##### Definition
+
+Sei $U \subseteq V$ ein Unterraum des Vektorraums $V$ mit einer orthonormale Basis $\mathcal{B}=\{b_1,...,b_l\}$. Ergänzen wir $\mathcal{B}$ um die Vektoren $\mathcal{B}'=\{b_{l+1},...,b_n\}$ zu einer Basis von $V$ und führen den Gram-Schmidt-Algorithmus auf diese Menge aus, so erhalten wir eine Orthonormalbasis für $V$. Hier ist $\mathcal{B}'$ eine Basis des Unterraums $U' \subset V$ und $V=U \oplus U'$ die direkte Summe der Unterräume. $U'$ ist der zu $U$ orthogonale und komplementäre Unterraum, das orthogonale Komplement von $U$, und wird auch mit $U^\perp$ bezeichnet.
+
+Es gilt:
+$$
+\begin{gather*}
+V=U\oplus U^\perp\\
+U \perp U^\perp\\
+U^\perp := \{x \in V \mid x \perp U\}\\
+U = (U^\perp)^\perp\\
+dim(U)+dim(U^\perp) = dim(V)
+\end{gather*}
+$$
+
+##### Definition fundamentale Unterräume
+
+Die zwei Paare komplementärer Unterräume $(\mathcal{N}(A),\mathcal{R}(A^H))$ und $(\mathcal{N}(A^H),\mathcal{R}(A))$ nennt man die vier fundamentalen Unterräume der $m \times n$ Matrix $A$. Dabei gilt:
+$$
+dim(\mathcal R (A)) = r\\
+dim(\mathcal N (A)) = r\\
+dim(\mathcal R (A^H)) = n-r\\
+dim(\mathcal N (A^H)) = m-r\\
+$$
+
+### Basiswechsel und Koordinatentransformationen von Orthonormalbasen
+
+##### Satz 6.10
+
+Die Transformationsmatrix einer Basistransformation zwischen orthonormierten Basen ist unitär bzw. orthogonal.
+
+##### Satz 6.11
+
+Sei eine Basistransformation unitär bzw. orthogonal. Dann gilt für die alten und neuen Koordinatenvektoren $\xi$ und $\xi'$: $\xi=T\xi'$ und $\xi'=T^H\xi$.
+
+##### Korollar 6.12
+
+Seien $B$ und $B'$ orthonormale Basen für $V$ und $x,y \in V$ und $\eta$ [$\xi $] der Koordinatenvektor von $x$ [$y$] bezüglich $B$ und $\eta'$ [$\xi '$] der Koordinatenvektor bzgl. $B'$, so bleibt das Skalarprodukt der Koordinatenvektoren bleibt erhalten. Das heißt: $\langle \xi',\eta'\rangle = \langle \xi,\eta\rangle$. Außerdem ist das Skalarprodukt hier längentreu ($\|\xi'\| = \|\xi\|$), winkeltreu ($\angle(\xi',\eta') = \angle(\xi,\eta)$) und es gilt $\xi \perp \eta \Longleftrightarrow \xi' \perp \eta'$. Dies lässt sich mit der Parsevalschen Formel beweisen.
+
+#### Darstellung linearer Abbildung in Orthonormalbasen
+
+Seien $F:X \longrightarrow Y$ eine lineare Abbildung und $X,$Y Vektorräume mit Skalarprodukt über $\mathbb R$ oder $\mathbb C$. Zusätzlich seinen $B$ und $B'$ Orthonormalbasen für $X$ und $D$ und $D'$ Orthonormalbasen für $Y$. Dann lässt sich über den Zusammenhang von $[F]_{B,D}$ und $[F]_{B',D'}$ folgendes Diagramm erstellen:
+
+![linabb_orthonobas](/Users/tobiasscheithauer/Library/Mobile Documents/com~apple~CloudDocs/Studium/Zusammenfassungen/LinAlg_ressources/linabb_orthonobas.jpg)
+
+Ein besonders wichtiger Fall ist die Selbstabbildung. Das bedeutet für diese Situation: $X=Y, B=D, B'=D'$. Hier ist dann auch $T=S$ und entsprechend $B=T^HAT$ und $A=TBT^H$.
+
+##### Korollar
+
+Wenn $F$ eine Selbstabbildung ist, dann gilt:
+$$
+A=A^H (Hermitesch) \Longleftrightarrow B=B^H (Hermitesch)\\
+A^HA=I \Longleftrightarrow B^HB=I
+$$
+
+### Orthogonale und unitäre Abbildungen
+
+##### Definition
+
+Seien $X,Y$ Vektorräume mit Skalarpodukt. Eine lineare Abbildung $F:X\longrightarrow Y$ heisst unitär bzw. orthogonal, falls $\forall x,w \in X: \langle F(x),F(w)\rangle_Y = \langle x,w \rangle_X$.
+
+##### Satz 6.13
+
+Sei $F:X\longrightarrow Y$ eine unitäre bzw. orthogonale Abbildung. Dann gilt:
+
+1. $F$ ist längentreu / isometrisch: $\forall v \in X: \|F(v)\|_Y=\|v\|_X$
+2. $v \perp w \Longleftrightarrow F(v) \perp F(w)$
+3. $ker(F)=\{0\}$, $F$ ist also injektiv
+4. Wenn $dim(X)=dim(Y) < \infty$
+   1. $F$ ist eine Isomorphismus
+   2. Wenn $\{b_1,...,b_n\}$ eine orthonormale Basis von $X$ ist, ist $\{F(b_1),...,F(b_n)\}$ eine orthonormale Basis von Y
+   3. $F^{-1}$ist unitär/orthogonal
+   4. Die Abbildungsmatrix $A$ bzgl. einer Orthonormalbasis von $X$ und $Y$ ist unitär bzw. orthogonal: $A^HA=AA^H=I$.
+
+### Normen linearer Abbildungen und Matrizen
+
+Hier geht es um die numerische Stabilität der Lösung eines LGS $Ax=b$. Häufig sorgt ein kleiner Fehler in $A$ oder $b$ zu einem großen Fehler in $x$. Solche kleinen Fehler können Messfehler oder auch Rundungsfehler durch Berechnungen mit Computern sein. Daher ist es notwendig, sicherzustellen, dass diese Fehler keine großen Fehler erzeugen.
+
+##### Konditionierung
+
+Sei $Ax=b, Ax'=b', A''x''=b$. Wenn für kleine Unterschiede zwischen $b$ und $b'$ und für kleine Unterschiede zwischen $A$ und $A''$ die Unterschiede zwischen $x$, $x'$ und $x''$ auch nur gering sind, so sagt man, $A$ ist gut konditioniert.
+
+##### Definition Konditionszahl
+
+Die Konditionszahl $\kappa$ einer Matrix $A\in \mathbb E^{n\times n}$ wird berechnet als $\kappa(A)=\|A\|*\|A^{-1}\|$ für reguläre Matrizen und definiert als $\kappa(A) : = \infty$ für singuläre Matrizen. Dabei gilt: Je grösser die Konditionszahl, desto schlechter konditioniert ist $A$.
+
+##### Definition beschränkte lineare Abbildungen
+
+Seien $X,Y$ normierte Vektorräume mit $\|.\|_X$ und $\|.\|_Y$. Eine lineare Abbildung $F:X\Longrightarrow Y$ heisst beschränkt, wenn es eine Zahl $\gamma_F \geq 0$ gibt, sodass $\forall x\in X: \|F(x)\|_Y \leq \gamma_F\|x\|_X$. Die Gesamtheit aller beschränkter Abbildungen zwischen $X$ und $Y$ wird mit $\mathcal L(X,Y)$ bezeichnet. Hierbei können die Normen von einem Skalarprodukt induziert sein, müssen es aber nicht.
+
+Endlich dimensionale Vektorräume sind immer beschränkt, unendlich dimensionale nicht.
+
+$\mathcal L(X,Y)$ ist eine Vektorraum. Die Addition und Multiplikation mit einem Skalar ist dabei wie folgt definiert:
+$$
+F+G \in \mathcal L (X,Y): x\in X \mapsto (F+G)(x) := F(x)+G(x)\\
+\alpha F \in \mathcal L (X,Y): x\in X \mapsto (\alpha F)(x) := \alpha F(x)\\
+$$
+
+##### Definition Supremum
+
+Sei $\emptyset \neq M \subseteq \mathbb R$ eine Teilmenge von $\mathbb R$. Das Supremum (kleinste obere Schranke) von $M$ ($sup(M)$) ist eine Zahl $c \in \mathbb R$, sodass $\forall x \in M: x \leq c$ und $\forall c' < c: \exists y\in M :y>c'$. 
+
+##### Definition induzierte Operatornorm
+
+Die induzierte Operatornorm auf $\mathcal L(X,Y) $ ist definiert als: $\|.\|:\mathcal L(X,Y) \longrightarrow \mathbb R$, $F \mapsto \|F\| := sup\{\frac{\|F(x)\|_Y}{\|x\|_X} \mid x \in X, x \neq 0\}$. Man schreibt auch: $\|F\| = sup_{x\neq0}\frac{\|F(x)\|}{\|x\|_X}$.
+
+Sei $X=\mathbb E^n, Y=\mathbb E^m$ so definieren wir eine Matrixnorm induziert durch die Vektornormen in $\mathbb E^n, \mathbb E^m$: $\|.\|:\mathbb E^{m\times n} \longrightarrow \mathbb R, A\mapsto \|A\|=sup_{x\neq 0}\frac{\|Ax\|}{\|x\|}$.
+
+Ist hier die Norm in $\mathbb E^n$ und $\mathbb E^m$ die 2-Norm, so heisst die Operatornorm die Spektralnorm oder 2-Norm.
+
+##### Lemma 6.17
+
+Die Operatornormen erfüllen: 
+$$
+F \in \mathcal L(X,Y): \|F\|=sup_{\|x\|_X=1}\|F(x)\|_Y\\
+A \in \mathbb E^{m\times n}: \|A\|=sup_{\|x\|_X=1}\|Ax\|
+$$
+Dadurch reicht es aus, die ''Einheitskugel'' zu betrachten.
+
+Für eine Diagonalmatrix $D$ ist die Spektralnorm $\|D\|_2 = max_{k=1...n}|d_k|$.
+
+#### Konditionszahl einer regulären Matrix $A \in \mathbb E^{n \times n}$
+##### Definiton Konditionszahl
+Die Konditionszahl einer Matrix $A$ bezüglich einer Matrixnorm $\|.\|$ ist definiert als: $\kappa(A):=\|A\|*\|A^{-1}\|$. Diese Formel resultiert aus der Betrachtung des relativen Fehlers der Lösung $x$ im Gleichungssystem $Ax=b$, wenn ein Fehler in $b$ steckt, sodass das LGS $Ax'=b'$ mit $b':=b+\epsilon$. Es gilt:
+$$
+Ax'=b' \Rightarrow x'=A^{-1}b'=A^{-1}(b+\epsilon)=A^{-1}b+A^{-1}\epsilon=x+A^{-1}\epsilon
+$$
+Damit ist der Relative Fehler in $x$ gleich $\frac{\|A^{-1}\epsilon\|}{\|x\|}$ und der relative Fehler in $b$ gleich $\frac{\|\epsilon\|}{\|b\|}$. Teilt man diese durcheinander, so erhält man: den gesamten relativen Fehler als:
+$$
+\frac{\frac{\|A^{-1}\epsilon\|}{\|x\|}}{\frac{\|\epsilon\|}{\|b\|}} 
+= \frac{\|A^{-1}\epsilon\|}{\|x\|} * \frac{\|b\|}{\|\epsilon\|}
+= \frac{\|A^{-1}\epsilon\|}{\|\epsilon\|}  * \frac{\|b\|}{\|x\|}
+= \frac{\|A^{-1}\epsilon\|}{\|\epsilon\|}  * \frac{\|b\|}{\|A^{-1}b\|}
+$$
+Daher gilt:
+$$
+sup_{\epsilon,b\neq 0} \frac{\|A^{-1}\epsilon\|}{\|\epsilon\|}  * \frac{\|b\|}{\|A^{-1}b\|}
+= sup_{\epsilon \neq 0} \frac{\|A^{-1}\epsilon\|}{\|\epsilon\|}  * sup_{b \neq 0} \frac{\|b\|}{\|A^{-1}b\|}
+= \|A^{-1}\| * sup_{x \neq 0} \frac{\|A^{-1}x\|}{\|x\|}
+= \|A^{-1}\| * \|A\|
+=: \kappa(A)
+$$
+
+## Die Methode der kleinsten Quadrate
+Mithilfe der Methode der kleinsten Quadrate lassen sich LGS möglichst gut lösen, auch wenn es streng mathematisch keine Lösung gibt, wie es bei einem System mit mehr Gleichungen als Variablen im Allgemeinen der Fall ist. Es wird also ein Kompromiss gesucht um statt  $Ax=b$ das LGS $Ax\approx b$ zu schreiben.
+
+Dafür nutzt man die Gleichung $x^*=argmin_{x \in \mathbb E^n}\|Ax-b\|_2^2$.
+
+Anschaulich bedeutet das, man sucht in einer Hyperebene im Vektorraum nach dem Vektor $Ax^*$, der dem Vektor $b$ am nächsten ist. Nach dem Satz des Pythagoras gilt für irgendeinen Vektor $Ax'\in R(A)$ und einen zu $R(A)$ senkrechten Vektor $Ax^*-b$: $\|Ax'-b\|^2=\|Ax^*-b\|^2+\|Ax'-Ax^*\|^2$. Da die Norm positiv definit ist, wissen wir, dass $\|Ax'-Ax^*\|^2\geq 0$ ist. Daher gilt: $\|Ax'-b\|^2=\|Ax^*-b\|^2$. Der zu $R(A)$ senkrechte Vektor $Ax^*-b$ ist also die kürzeste Verbindung von $b$ zu einem Vektor in $R(A)$.
+
+Daher sucht man nach $x^*$ mit $(Ax^*-b) \perp \mathcal R(A)$:
+$$
+(Ax^*-b) \perp R(A) = span\{a_1,...,a_n\}\\
+(Ax^*-b) \in R(A)^\perp = \mathcal N(A^H) \text(\textit{ Nach Satz 6.9})\\
+(Ax^*-b) \perp \text{ zu allen Spalten von $A$}\\
+(Ax^*-b) \perp a_1 \Longrightarrow a_1^H(Ax^*-b) = 0 \text(\textit{ Skalarprodukt ist Null})\\
+(Ax^*-b) \perp a_2 \Longrightarrow a_2^H(Ax^*-b) = 0 \text(\textit{ Skalarprodukt ist Null})\\
+...\\
+(Ax^*-b) \perp a_n \Longrightarrow a_n^H(Ax^*-b) = 0 \text(\textit{ Skalarprodukt ist Null})\\
+\Longrightarrow A^HAx^*=A^Hb
+$$
+
+Hierbei ist wichtig zu beachten, dass $A^HAx^*=A^Hb$ keineswegs $Ax^*=b$ impliziert, da $A^H$ nicht invertierbar ist.
+
+Wenn $Rang(A)=n$ ist, ist $A^HA$ regulär und diese Gleichung hat nur eine Lösung. In diesem Fall lässt sich die Normalengleichung umstellen zu $x^*=(A^HA)^{-1}A^Hb$.
+---
+##### Definition Moore-Penrose-Pseudoinverse
+Die Matrix $A^+:=(A^HA)^{-1}A^H \in \mathbb E^{n \times m}$ heisst die Moore-Penrose-Pseudoinverse von $A$ und es gilt $A^+A=I$
+---
+Ist der Rang der Matrix $A$ jedoch kleiner, so gibt es unendlich viele Lösungen. In diesem Fall wählt man häufig die sog. Minimallösung. Das heißt, es wird diejenige genommen, bei der $\|x^*\|_2^2$ minimal ist. 
+
+### Anwendung: Regression
+
+Wollen wir eine Funktion berechnen, die möglichst gut eine Menge von Messdaten modelliert, so erstellen wir aus den $N$ Messungen $(t_1,f_1),...,(t_N,f_N)$ ein Gleichungssystem für eine Funktion eines bestimmten Grades $n<<N$:
+$$
+a_0+a_1t_1+a_2t_1^2+...+a_nt_1^n=f_1\\
+a_0+a_1t_2+a_2t_2^2+...+a_nt_2^n=f_2\\
+...\\
+a_0+a_1t_N+a_2t_N^2+...+a_nt_N^n=f_N\\
+$$
+Hieraus lässt sich eine Matrix $U$ und zwei Vektoren $a$ und $f$ konstruieren, sodass das Gleichungssystem als LGS $Ua=f$ geschrieben werden kann:
+$$
+U=\begin{pmatrix}
+1 & t_1 & t_1^2 & \dots & t_1^n\\
+\vdots\\
+1 & t_N & t_N^2 & \dots & t_N^n\\
+\end{pmatrix}
+$$
+$$
+a=\begin{pmatrix}a_0\\ a_1\\ \vdots \\ a_n\end{pmatrix}
+$$
+$$
+f=\begin{pmatrix}f_0\\ f_1\\ \vdots\\ f_n\end{pmatrix}
+$$
+Die Matrix $U$ wird auch Vandermonde-Matrix genannt.
+
+Nun gilt es $\|Ua^*-f\|_2^2$ zu minimieren, was wir durch Lösen der Normalengleichung $U^TUa^*=U^Tf$ tun können.
+
+## Determinante
+##### Definition
+Die Determinante einer $n \times n$ Matrix $A=(a_{kl})$, geschrieben $det A$, $det(A)$ oder $|A|$ ist definiert als:
+$$
+det A:=\sum_{p \in S_n}sign(p)*a_{1,p(1)}*a_{2,p(2)}*...*a_{n,p(n)}
+$$
+
+Hierbei ist $S_n$ die Gruppe der $n!$ Permutationen von $(1,2,3,...,n)$.
+Das Signum ($sign$) einer Permutation $p$ ist definiert als: $sign(p):=\begin{cases}+1& \nu \text{ ist gerade}\\-1& \nu \text{ ist ungerade}\end{cases}$. $\nu$
+ist dabei die Anzahl der Vertauschungen, die für das Erreichen einer Permutation durchgeführt werden müssen. Aus Gründen der schwarzen Magie (Beweis im Skript) ist diese Zahl für beliebige Permutationen immer entweder gerade oder ungerade.
+
+Anschaulich erfolgt die Berechnung der Determinante einer Matrix nach Sat 8.12 rekursiv: Aus der einer Spalte (es kann auch eine Zeile gewählt werden), werden die einzelnen Elemente mit der Determinante der durch Streichung der Spalte und Zeile des Elements entstehenden Matrix multipliziert und abwechselnd addiert und subtrahiert.
+
+##### Satz 8.12
+Sei $A \in \mathbb E^{n\times n}$ eine $n\times n$ Matrix. Es gilt für jedes feste $k\in\{1,...,n\}$ und $l \in \{\1,...,n\}$:
+$$
+det(A)=\sum_{j=1}^n(-1)^{k+j}a_{k,j}det(A)_{[k,j]}\\
+det(A)=\sum_{j=1}^n(-1)^{j+l}a_{j,l}det(A)_{[j,l]}\\
+$$
+Hier ist $A_{[k,j]}$ die $(n-1)\times(n-1)$ Matrix, die durch das Streichen der Zeile $k$ und Spalte $j$ von $A$ entsteht.
+
+##### Definition
+Die Zahl $k_{j,l}:=(-1)^{j+l}*det(A_{[j,l]})$ heisst der Kofaktor $k_{j,l}$ von Element $a_{j,l}$.
+
+##### Wichtiges Beispiel: Dreiecksmatrix
+Die Determinante einer Dreiecksmatrix (gilt für Rechts- und Linksdreiecksmatrizen) ist gleich dem Produkt der Diagonalelemente.
+
+#### Eigenschaften der Determinante
+##### Satz 8.3
+###### 1. Linearität in jeder Zeile
+$$
+\forall \alpha,\beta \in \mathbb E, \forall l \in \{1,...,n\} det\begin{pmatrix}a_1\\a_2\\\vdots\\ \alpha u_l + \beta v_l\\ \vdots \\a_n\end{pmatrix}=\alpha det\begin{pmatrix}a_1\\a_2\\\vdots\\ u_l\\ \vdots \\a_n\end{pmatrix} + \beta det\begin{pmatrix}a_1\\a_2\\\vdots\\ v_l\\ \vdots \\a_n\end{pmatrix}
+$$
+###### 2. Vertauschung von Zeilen
+$$
+det\begin{pmatrix}a_1\\a_2\\\vdots\\ a_k\\ \vdots\\ a_l\\ \vdots \\ a_n\end{pmatrix}=-det\begin{pmatrix}a_1\\a_2\\\vdots\\ a_l\\ \vdots\\ a_k\\ \vdots \\ a_n\end{pmatrix}
+$$
+###### 3. Deteminante der Identitätsmatrix
+$$
+det(I)=1
+$$
+
+##### Satz 8.4
+Das Funktional $det$ hat folgende weitere Eigenschaften:
+* Hat $A$ eine Zeile aus lauter Nullen, so ist $det(A)=0$. Folgt aus 1.
+* $det(\gamma A)=\gamma^n det(A)$. Folgt aus 1.
+* Hat $A$ zwei gleiche Zeilen, so ist $det(A)=0$
+* Addiert man zu einer Zeile von $A$ ein Vielfaches einer anderen Zeile von $A$, so ändert sich $det(A)$ nicht.
+* Ist $A$ eine Diagonalmatrix, so ist $det(A)$ gleich dem Produkt der Diagonalelemente
+* Ist $A$ eine Dreiecksmatrix, so ist $det(A)$ gleich dem Produkt der Diagonalelemente
+
+##### Satz 8.5
+Wenden wir den Gauss-Algorithmus auf eine quadratische Matrix $A\in \mathbb E^{n\times n}$ an, so gilt $det(A)=(-1)^\nu \prod_{k=1}^nr_{kk}$, wobei $\nu$ die Anzahl der Zeilenvertauschungen ist und $r_{kk}$ die Dieagonalelemente der resultierenden Zeilenstufenform ist. Hieran lässt sich erkennen, dass $det(A)\neq0 \Leftrightarrow Rang(A)=n\Leftrightarrow A \text{ ist regulär}$. Da der Gauss-Algorithmus eine Laufzeit von ca. $\mathcal O(n^3)$ hat, ist dies eine günstige Möglichkeit die Determinante zu berechnen.
+
+##### Satz 8.6
+Die Determinante ist die einzige Funktion $\mathbb E^{n \times n} \Longrightarrow \mathbb E$, die die drei Kerneigenschaften besitzt. Diese Eigenschaften sind daher charakteristisch für die Determinante. DEr Beweis dieser Aussage ist sehr nicht-trivial.
+
+##### Satz 8.7
+Für zwei quadratische Matrizen $A,B\in\mathbb E^{n\ times n}$ gilt: $det(AB)=det(A)*det(B)$
+
+##### Korollar 8.8
+Für eine quadratische Matrix $A$ gilt: $A \text{ ist regulär } \Rightarrow det(A^{-1}) = \frac{1}{det(A)}$
+
+##### Satz 8.9
+Es gilt:
+$$
+det(A^T)=det(A)\\
+det(A^H)=\overline{det(A)}
+$$
+
+##### Korollar 8.10
+Die Eigenschaften der Determinante gelten auch für Spalten, nicht nur für Zeilen:
+![](LinAlg_ressources/K_8-10.jpg)
+
+### Geometrische Bedeutung der Determinante
+Die Determinante einer Matrix berechnet das Volumen des Körpers, der durch die Kolonnenvektoren der Matrix aufgespannt wird. Dabei ist das Vorzichen abhängig von der Reohenfolge der Achsen.
+
+## Kapitel 9: Eigenwerte und Eigenvektoren
+Bisher haben wir verschiedene Zerlegungen von Matrizen gesehen: die LR-Zerlegung, die für reguläre Matrizen anwendbar ist, die LLT-Zerlegung, die für symmetrische Matrizen anwendbar ist und die QR-Zerlegung, die beim Lösen überbestimmter Gleichungssysteme hilft. Neu hinzukommen werden jetzt die Spektralzerlegung, die nicht für alle Matrizen existiert und die Singulärwertzerlegung, die für alle Matrizen berechnet werden kann.
+
+##### Definition Eigenwert und Eigenvektor
+Sei $F:V \longrightarrow V$ eine Selbstabbildung auf dem Vektorraum $V$ mit $dim(V)<\infty$. Ein Vektor $x$, der durch $F$ nur skaliert wird, für den also $F(x)= \lambda x$ für ein $\lambda \in \mathbb E$ gilt, wird Eigenvektor von $F$ zum Eigenwert $\lambda$ genannt. 
+
+##### Definition 
+Die Menge aller Eigenvektoren, die zum Eigenwert $\lambda$ gehören und der Nullvektor bilden einen Unterraum $E_\lambda := \{v \in V \mid F(v)=\lambda v\}$. 
+
+##### Definition
+Die Menge aller Eigenwerte von $F$ heisst Spektrum von $F$.
+
+##### Satz
+Eine Matrix $A$ ist genau dann singulär, wenn sie den Eigenwert $\lambda=0$ hat.
+
+##### Gleichheit der Eigenwerte von Abbildungen und deren Abbildungsmatrizen
+Eine lineare Abbildung $F>V \longrightarrow V$ und ihre Matrizdarstellung bzgl. einer Basis in $V$ haben die gleichen Eigenwerte und die Eigenvektoren sind über die Koordinatenabbildung verbunden.
+//
+##### Kern und Eigenraum
+Für eine Matrix $A$ mit Eigenwert $\lambda$ und einen Vektor $x \neq 0$ gilt:$Ax = \lambda x \Rightarrow (A-I\lambda)x = 0 \Rightarrow (A-I\lambda) \text{ ist eine singuläre Matrix} \Rightarrow det(A-I\lambda)=0$ Daher ist der Kern dieser Matrix gleich dem Eigenraum bzgl. $\lambda$: $E_\lambda=ker(A-\lambda I)$.
+
+##### Definition 
+Die geometrische Vielfachheit eines Eigenwertes $\lambda$ ist gleich $dim(E_\lambda) = dim(ker(A-\lambda I))$. 
+
+### Berechnung von Eigenwerten
+Sei $\lambda$ ein Eigenwert von $A$, so gilt $(A-\lambda I)$ ist singulär, die Determinante dieser Matrix ist also 0. Folglich müsen wir Werte finden, für die die Determinante gleich 0 wird.
+
+### Berechnung von Eigenvektoren
+Um die Eigenwerte einer Matrix zu bestimmen, können wir das LGS $Ax=\lambda x$ lösen oder den Kern von $(A-\lambda I)$ bestimmen. 
+
+##### Definition
+Das charaktische Polynom einer Matrix $A$ ist das Polynom $det(A-\lambda I) =: \Xi_A(\lambda)$. Die Gleichung $\Xi_A(\lambda) = 0$ ist die charakteristische Gleichung.
+
+##### Satz 9.5
+$$
+\lambda \in \mathbb E \text{ ist ein Eigenwert von } A\in \mathbb E^{n \times n} \Leftrightarrow \lambda \text{ ist eine Nullstelle von } \Xi_A \Leftrightarrow \lambda \text{ ist eine Lösung der charakteristischen Gleichung}
+$$
+Daher gibt es für Matrizen über $\mathbb C$ immer Eigenwerte, während diese für Matrizen über $\mathbb R$ nicht unbedingt existieren müssen.
+
+##### Definition
+Die Summe der Diagonalelemente einer $\n \times n$ Matrix heisst Spur.
+
+##### Lemma 9.4
+$$
+\Xi_A(\lambda) = (-\lambda)^n + (-\lambda)^n \cdot Spur(A) + ... + det (A)
+$$
+
+##### Definition 
+Die algebraische Vielfachheit eines Eigenwertes ist die Vielfachheit des Wertes als Nullstelle des charakteristischen Polynoms $\Xi_A(\lambda)$.
+
+##### Satz 9.13
+Für jeden Eigenvektor $\lambda$ gilt: die geometrische Vielfachheit ist kleiner gleich der algebraischen Vielfachheit. 

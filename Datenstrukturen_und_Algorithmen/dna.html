@@ -1,0 +1,2128 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>body {
+  max-width: 980px;
+  border: 1px solid #ddd;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 45px;
+}
+
+@font-face {
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body .codehilitetable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before,
+.markdown-body hr:after {
+  display: table;
+  content: " ";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .headerlink {
+  font: normal 400 16px fontawesome-mini;
+  vertical-align: middle;
+  margin-left: -16px;
+  float: left;
+  display: inline-block;
+  text-decoration: none;
+  opacity: 0;
+  color: #333;
+}
+
+.markdown-body .headerlink:focus {
+  outline: none;
+}
+
+.markdown-body h1 .headerlink {
+  margin-top: 0.8rem;
+}
+
+.markdown-body h2 .headerlink,
+.markdown-body h3 .headerlink {
+  margin-top: 0.6rem;
+}
+
+.markdown-body h4 .headerlink {
+  margin-top: 0.2rem;
+}
+
+.markdown-body h5 .headerlink,
+.markdown-body h6 .headerlink {
+  margin-top: 0;
+}
+
+.markdown-body .headerlink:hover,
+.markdown-body h1:hover .headerlink,
+.markdown-body h2:hover .headerlink,
+.markdown-body h3:hover .headerlink,
+.markdown-body h4:hover .headerlink,
+.markdown-body h5:hover .headerlink,
+.markdown-body h6:hover .headerlink {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code,
+.markdown-body samp {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .codehilite {
+  margin-bottom: 16px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .codehilite pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
+}
+
+.markdown-body .admonition table {
+  color: #333;
+}
+
+.markdown-body .admonition p {
+  padding: 0;
+}
+
+.markdown-body .admonition-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.markdown-body .admonition>.admonition-title {
+  color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* Multimarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+.markdown-body .headeranchor {
+  font: normal normal 16px fontawesome-mini;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor:before {
+  content: '\e157';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 4px 0.25em -20px;
+  vertical-align: middle;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
+}
+
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
+
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
+
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
+
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
+
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js'></script><script>MathJax.Hub.Config({
+  config: ["MMLorHTML.js"],
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX", "output/HTML-CSS", "output/NativeMML"],
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+    processEscapes: true
+  },
+  TeX: {
+    extensions: ["AMSmath.js", "AMSsymbols.js"],
+    TagSide: "right",
+    TagIndent: ".8em",
+    MultLineWidth: "85%",
+    equationNumbers: {
+      autoNumber: "AMS",
+    },
+    unicode: {
+      fonts: "STIXGeneral,'Arial Unicode MS'"
+    }
+  },
+  displayAlign: "center",
+  showProcessingMessages: false,
+  messageStyle: 'none'
+});</script><style>/*github*/
+.codehilite {background-color:#fff;color:#333333;}
+.codehilite .hll {background-color:#ffffcc;}
+.codehilite .c{color:#999988;font-style:italic}
+.codehilite .err{color:#a61717;background-color:#e3d2d2}
+.codehilite .k{font-weight:bold}
+.codehilite .o{font-weight:bold}
+.codehilite .cm{color:#999988;font-style:italic}
+.codehilite .cp{color:#999999;font-weight:bold}
+.codehilite .c1{color:#999988;font-style:italic}
+.codehilite .cs{color:#999999;font-weight:bold;font-style:italic}
+.codehilite .gd{color:#000000;background-color:#ffdddd}
+.codehilite .ge{font-style:italic}
+.codehilite .gr{color:#aa0000}
+.codehilite .gh{color:#999999}
+.codehilite .gi{color:#000000;background-color:#ddffdd}
+.codehilite .go{color:#888888}
+.codehilite .gp{color:#555555}
+.codehilite .gs{font-weight:bold}
+.codehilite .gu{color:#800080;font-weight:bold}
+.codehilite .gt{color:#aa0000}
+.codehilite .kc{font-weight:bold}
+.codehilite .kd{font-weight:bold}
+.codehilite .kn{font-weight:bold}
+.codehilite .kp{font-weight:bold}
+.codehilite .kr{font-weight:bold}
+.codehilite .kt{color:#445588;font-weight:bold}
+.codehilite .m{color:#009999}
+.codehilite .s{color:#dd1144}
+.codehilite .n{color:#333333}
+.codehilite .na{color:teal}
+.codehilite .nb{color:#0086b3}
+.codehilite .nc{color:#445588;font-weight:bold}
+.codehilite .no{color:teal}
+.codehilite .ni{color:purple}
+.codehilite .ne{color:#990000;font-weight:bold}
+.codehilite .nf{color:#990000;font-weight:bold}
+.codehilite .nn{color:#555555}
+.codehilite .nt{color:navy}
+.codehilite .nv{color:teal}
+.codehilite .ow{font-weight:bold}
+.codehilite .w{color:#bbbbbb}
+.codehilite .mf{color:#009999}
+.codehilite .mh{color:#009999}
+.codehilite .mi{color:#009999}
+.codehilite .mo{color:#009999}
+.codehilite .sb{color:#dd1144}
+.codehilite .sc{color:#dd1144}
+.codehilite .sd{color:#dd1144}
+.codehilite .s2{color:#dd1144}
+.codehilite .se{color:#dd1144}
+.codehilite .sh{color:#dd1144}
+.codehilite .si{color:#dd1144}
+.codehilite .sx{color:#dd1144}
+.codehilite .sr{color:#009926}
+.codehilite .s1{color:#dd1144}
+.codehilite .ss{color:#990073}
+.codehilite .bp{color:#999999}
+.codehilite .vc{color:teal}
+.codehilite .vg{color:teal}
+.codehilite .vi{color:teal}
+.codehilite .il{color:#009999}
+.codehilite .gc{color:#999;background-color:#EAF2F5}
+</style><title>dna</title></head><body><article class="markdown-body"><h1 id="datenstrukturen-und-algorithmen">Datenstrukturen und Algorithmen<a class="headerlink" href="#datenstrukturen-und-algorithmen" title="Permanent link"></a></h1>
+<div class="toc">
+<ul>
+<li><a href="#datenstrukturen-und-algorithmen">Datenstrukturen und Algorithmen</a><ul>
+<li><a href="#organisatorisches">Organisatorisches</a><ul>
+<li><a href="#team">Team</a></li>
+<li><a href="#webseite">Webseite</a></li>
+<li><a href="#ubungen">Übungen</a></li>
+</ul>
+</li>
+<li><a href="#graphen">Graphen</a><ul>
+<li><a href="#allgemeines">Allgemeines</a></li>
+<li><a href="#beispiele">Beispiele</a><ul>
+<li><a href="#kartenfarbung">Kartenfärbung</a></li>
+<li><a href="#prufungsplanung">Prüfungsplanung</a></li>
+</ul>
+</li>
+<li><a href="#definition-von-ungerichteten-graphen">Definition von ungerichteten Graphen</a><ul>
+<li><a href="#definition-graph-als-mathematisches-objekt">Definition: Graph als mathematisches Objekt</a></li>
+<li><a href="#definition-begriffe">Definition: Begriffe</a></li>
+</ul>
+</li>
+<li><a href="#definition-besondere-graphen">Definition: Besondere Graphen</a></li>
+<li><a href="#besondere-eigenschaften-von-graphen">Besondere Eigenschaften von Graphen</a><ul>
+<li><a href="#summe-der-knotengrade">Summe der Knotengrade</a><ul>
+<li><a href="#beweis">Beweis</a></li>
+</ul>
+</li>
+<li><a href="#farbbarkeit-und-knotengrade">Färbbarkeit und Knotengrade</a><ul>
+<li><a href="#beweis_1">Beweis</a></li>
+</ul>
+</li>
+<li><a href="#bipartite-graphen-und-ungerade-kreise">Bipartite Graphen und ungerade Kreise</a><ul>
+<li><a href="#beweis_2">Beweis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#gerichtete-graphen">Gerichtete Graphen</a><ul>
+<li><a href="#allgemeines_1">Allgemeines</a></li>
+<li><a href="#definition-begriffe_1">Definition: Begriffe</a></li>
+<li><a href="#topologische-sortierung-azyklischer-graphen">Topologische Sortierung azyklischer Graphen</a><ul>
+<li><a href="#beweis_3">Beweis</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#graphenalgorithmen">Graphenalgorithmen</a><ul>
+<li><a href="#gierige-knotenfarbung">Gierige Knotenfärbung</a></li>
+<li><a href="#bipartition">Bipartition</a></li>
+<li><a href="#tiefensuche">Tiefensuche</a></li>
+<li><a href="#breitensuche">Breitensuche</a></li>
+</ul>
+</li>
+<li><a href="#reprasentationen-von-graphen">Repräsentationen von Graphen</a><ul>
+<li><a href="#adjazenzmatrix">Adjazenzmatrix</a><ul>
+<li><a href="#definition">Definition</a></li>
+</ul>
+</li>
+<li><a href="#adjazenzliste">Adjazenzliste</a><ul>
+<li><a href="#definition_1">Definition</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#algorithmen">Algorithmen</a><ul>
+<li><a href="#effizienz-von-algorithmen">Effizienz von Algorithmen</a><ul>
+<li><a href="#allgemeines-berechnungsmodell">Allgemeines Berechnungsmodell</a><ul>
+<li><a href="#komponenten-eines-computers">Komponenten eines Computers</a></li>
+</ul>
+</li>
+<li><a href="#laufzeit">Laufzeit</a><ul>
+<li><a href="#definition_2">Definition</a></li>
+</ul>
+</li>
+<li><a href="#asymptotische-notation">Asymptotische Notation</a><ul>
+<li><a href="#definition-obere-schranke">Definition obere Schranke</a></li>
+<li><a href="#definition-untere-schranke">Definition untere Schranke</a></li>
+<li><a href="#definition-asymptotisch-genaues-wachstum">Definition asymptotisch genaues Wachstum</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#algorithmenentwurf-maximum-subarray-sum">Algorithmenentwurf - Maximum Subarray Sum</a><ul>
+<li><a href="#das-problem">Das Problem</a></li>
+<li><a href="#algorithmus-1-naiv">Algorithmus 1: Naiv</a><ul>
+<li><a href="#idee">Idee</a></li>
+<li><a href="#pseudocode">Pseudocode</a></li>
+<li><a href="#laufzeit_1">Laufzeit</a></li>
+</ul>
+</li>
+<li><a href="#algorithmus-2-vorberechnung">Algorithmus 2: Vorberechnung</a><ul>
+<li><a href="#idee_1">Idee</a></li>
+<li><a href="#pseudocode_1">Pseudocode</a></li>
+<li><a href="#laufzeit_2">Laufzeit</a></li>
+</ul>
+</li>
+<li><a href="#algorithmus-3-divide-and-conquer">Algorithmus 3: Divide and Conquer</a><ul>
+<li><a href="#idee_2">Idee</a></li>
+<li><a href="#pseudocode_2">Pseudocode</a></li>
+<li><a href="#laufzeit_3">Laufzeit</a></li>
+</ul>
+</li>
+<li><a href="#algorithmus-4-induktiv">Algorithmus 4: Induktiv</a><ul>
+<li><a href="#idee_3">Idee</a></li>
+<li><a href="#pseudocode_3">Pseudocode</a></li>
+<li><a href="#laufzeit_4">Laufzeit</a></li>
+</ul>
+</li>
+<li><a href="#die-komplexitat-des-problems">Die Komplexität des Problems</a></li>
+<li><a href="#komplexitat-und-laufzeit">Komplexität und Laufzeit</a></li>
+</ul>
+</li>
+<li><a href="#algorithmenentwurf-suche">Algorithmenentwurf - Suche</a><ul>
+<li><a href="#algorithmus-1-binare-suche-im-sortierten-array">Algorithmus 1: Binäre Suche im sortierten Array</a><ul>
+<li><a href="#idee_4">Idee</a></li>
+<li><a href="#pseudocode-rekursiv">Pseudocode rekursiv</a></li>
+<li><a href="#pseudocode-iterativ">Pseudocode iterativ</a></li>
+<li><a href="#laufzeit_5">Laufzeit</a></li>
+</ul>
+</li>
+<li><a href="#algorithmus-2-interpolationssuche-im-sortierten-array">Algorithmus 2: Interpolationssuche im sortierten Array</a><ul>
+<li><a href="#idee_5">Idee</a></li>
+<li><a href="#formel-fur-m">Formel für m</a></li>
+<li><a href="#laufzeit_6">Laufzeit</a></li>
+</ul>
+</li>
+<li><a href="#komplexitat-des-problems">Komplexität des Problems</a></li>
+<li><a href="#algorithmus-3-lineare-suche-im-unsortierten-array">Algorithmus 3: Lineare Suche im unsortierten Array</a><ul>
+<li><a href="#idee_6">Idee</a></li>
+<li><a href="#pseudocode_4">Pseudocode</a></li>
+<li><a href="#laufzeit_7">Laufzeit</a></li>
+</ul>
+</li>
+<li><a href="#komplexitat-des-problems_1">Komplexität des Problems</a></li>
+</ul>
+</li>
+<li><a href="#algorithmenentwurf-sortieren">Algorithmenentwurf - Sortieren</a><ul>
+<li><a href="#das-problem_1">Das Problem</a></li>
+<li><a href="#algorithmus-0-prufung">Algorithmus 0: Prüfung</a></li>
+<li><a href="#algorithmus-1-bubblesort">Algorithmus 1: BubbleSort</a><ul>
+<li><a href="#idee_7">Idee</a></li>
+<li><a href="#pseudocode_5">Pseudocode</a></li>
+<li><a href="#laufzeit_8">Laufzeit</a></li>
+</ul>
+</li>
+<li><a href="#algorithmus-2-selectionsort">Algorithmus 2: SelectionSort</a><ul>
+<li><a href="#idee_8">Idee</a></li>
+<li><a href="#pseudocode_6">Pseudocode</a></li>
+<li><a href="#laufzeit_9">Laufzeit</a></li>
+</ul>
+</li>
+<li><a href="#algorithmus-3-insertionsort">Algorithmus 3: InsertionSort</a><ul>
+<li><a href="#idee_9">Idee</a></li>
+<li><a href="#pseudocode_7">Pseudocode</a></li>
+<li><a href="#laufzeit_10">Laufzeit</a></li>
+</ul>
+</li>
+<li><a href="#algorithmus-4-heapsort">Algorithmus 4: Heapsort</a><ul>
+<li><a href="#idee_10">Idee</a></li>
+<li><a href="#pseudocode_8">Pseudocode</a></li>
+<li><a href="#laufzeit_11">Laufzeit</a></li>
+</ul>
+</li>
+<li><a href="#algorithmus-5-mergesort">Algorithmus 5: MergeSort</a><ul>
+<li><a href="#idee_11">Idee</a></li>
+<li><a href="#pseudocode_9">Pseudocode</a></li>
+<li><a href="#laufzeit_12">Laufzeit</a></li>
+</ul>
+</li>
+<li><a href="#algorithmus-6-quicksort">Algorithmus 6: QuickSort</a><ul>
+<li><a href="#idee_12">Idee</a></li>
+<li><a href="#pseudocode_10">Pseudocode</a></li>
+<li><a href="#laufzeit_13">Laufzeit</a></li>
+</ul>
+</li>
+<li><a href="#komplexitat-des-problems_2">Komplexität des Problems</a></li>
+</ul>
+</li>
+<li><a href="#abstrakte-datentypen-datenstrukturen">Abstrakte Datentypen &amp; Datenstrukturen</a><ul>
+<li><a href="#abstrakte-datentypen">Abstrakte Datentypen</a><ul>
+<li><a href="#adt-stapel-engl-stack">ADT Stapel (engl. stack)</a></li>
+<li><a href="#adt-schlange-engl-queue">ADT Schlange (engl. queue)</a></li>
+<li><a href="#adt-priority-queue">ADT Priority Queue</a></li>
+<li><a href="#adt-worterbuch-dictionary">ADT Wörterbuch (Dictionary)</a></li>
+</ul>
+</li>
+<li><a href="#datenstrukturen">Datenstrukturen</a><ul>
+<li><a href="#linked-list">Linked List</a></li>
+<li><a href="#heap">Heap</a></li>
+<li><a href="#binary-search-tree">Binary Search Tree</a><ul>
+<li><a href="#natural-search-tree">Natural Search Tree</a><ul>
+<li><a href="#suche">Suche</a></li>
+<li><a href="#entfernen">Entfernen</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#avl-baum">AVL-Baum</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#dynamische-programmierung">Dynamische Programmierung</a><ul>
+<li><a href="#beispiele_1">Beispiele</a><ul>
+<li><a href="#beispiel-1-langste-aufsteigende-teilfolge-lat">Beispiel 1: Längste aufsteigende Teilfolge (LAT)</a></li>
+<li><a href="#beispiel-2-langste-gemeinsame-teilfolge-alignment">Beispiel 2: Längste gemeinsame Teilfolge (Alignment)</a></li>
+<li><a href="#beispiel-3-minimale-editierdistanz">Beispiel 3: Minimale Editierdistanz</a></li>
+<li><a href="#beispiel-4-matrixkettenmultiplikation">Beispiel 4: Matrixkettenmultiplikation</a></li>
+<li><a href="#beispiel-5-teilsummenproblem">Beispiel 5: Teilsummenproblem</a></li>
+<li><a href="#beispiel-6-rucksackproblem">Beispiel 6: Rucksackproblem</a></li>
+<li><a href="#beispiel-7-wege-von-u-nach-v-in-graphen-zahlen">Beispiel 7: Wege von $u$ nach $v$ in Graphen zählen</a></li>
+<li><a href="#beispiel-8-kurzeste-wege-in-graphen">Beispiel 8: Kürzeste Wege in Graphen</a></li>
+</ul>
+</li>
+<li><a href="#approximation-fur-pseudopolynomielle-algorithmen">Approximation für pseudopolynomielle Algorithmen</a><ul>
+<li><a href="#approximationsschema-fur-das-rucksackproblem">Approximationsschema für das Rucksackproblem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="organisatorisches">Organisatorisches<a class="headerlink" href="#organisatorisches" title="Permanent link"></a></h2>
+<h3 id="team">Team<a class="headerlink" href="#team" title="Permanent link"></a></h3>
+<h3 id="webseite">Webseite<a class="headerlink" href="#webseite" title="Permanent link"></a></h3>
+<h3 id="ubungen">Übungen<a class="headerlink" href="#ubungen" title="Permanent link"></a></h3>
+<h2 id="graphen">Graphen<a class="headerlink" href="#graphen" title="Permanent link"></a></h2>
+<h3 id="allgemeines">Allgemeines<a class="headerlink" href="#allgemeines" title="Permanent link"></a></h3>
+<ul>
+<li>Graphen stellen Netzwerke dar. (Soziale Netzwerke,
+    Strassennetzwerke, Tram-Netzwerke, Stromnetze, Computernetze,
+    Neuronale Netze)</li>
+<li>Graphen vereinfachen und verbinden (einheitliche Beschreibung
+    versch. Netze)</li>
+<li>Graphen können gross sein (Computer und effiziente Algorithmen
+    notwendig)</li>
+</ul>
+<h3 id="beispiele">Beispiele<a class="headerlink" href="#beispiele" title="Permanent link"></a></h3>
+<h4 id="kartenfarbung">Kartenfärbung<a class="headerlink" href="#kartenfarbung" title="Permanent link"></a></h4>
+<p>Auf einer Landkarte sollen alle Länder so gefärbt werden, dass benachbarte Länder stets verschiedene Farben haben. Es sollen möglichst wenige Farben verwendet werden.
+Beobachtung: Es kommt nur darauf an, welche Paare von Ländern benachbart sind.</p>
+<h4 id="prufungsplanung">Prüfungsplanung<a class="headerlink" href="#prufungsplanung" title="Permanent link"></a></h4>
+<p>Eingabe: $n$ geplante Prüfungen und $k$ mögliche Termine
+Ziel: weise jeder Prüfung einen Termin zu
+Bedingung: zwei Prüfungen dürfen nicht gleichzeitig stattfinden, wenn ein oder mehr Studenten beide Prüfungen schreibt.
+Beobachtung: Es kommt nur darauf an, welche Paare von Prüfungen durch Studenten verbunden sind.</p>
+<p>Beide Probleme sind im Kern dasselbe Problem (Knotenfärbung). Die
+Graphentheorie liefert die nötige Abstraktion um dies zu erkennen und
+ermöglich die Anwendung einer Lösungsidee auf beide Probleme.</p>
+<h3 id="definition-von-ungerichteten-graphen">Definition von ungerichteten Graphen<a class="headerlink" href="#definition-von-ungerichteten-graphen" title="Permanent link"></a></h3>
+<h4 id="definition-graph-als-mathematisches-objekt">Definition: Graph als mathematisches Objekt<a class="headerlink" href="#definition-graph-als-mathematisches-objekt" title="Permanent link"></a></h4>
+<p>Ein Graph $G=(V,E)$ besteht aus einer Menge Knoten
+$V={v_1, v_2, &hellip;, v_n}$ (engl. vertices) und einer Menge Kanten
+$E={e_1, e_2, &hellip;, e_m}$ (engl. edges). Dabei ist jede Kante $e_k$
+eine Menge zweier Knoten $v_i, v_j$, also $e_k={v_i, v_j}$.</p>
+<h4 id="definition-begriffe">Definition: Begriffe<a class="headerlink" href="#definition-begriffe" title="Permanent link"></a></h4>
+<ul>
+<li>Zwei Knoten $v_i, v_j$ sind <strong>adjazent/benachbart</strong> in $G$, falls
+    ${v_i,v_j} \in E$.</li>
+<li>Knoten $v_i$ und Kante $e_k$ sind <strong>inzident</strong> in $G$, falls
+    ${v_i} \in e_k$.</li>
+<li>Die <strong>Nachbarschaft</strong> $N_G(v_i)$ ist die Menge der benachbarten
+    Knoten von $v_i$.</li>
+<li>Der <strong>Grad</strong> eines Knotens $v_i$ gibt die Anzahl der Nachbarn von
+    $v_i$ an: $deg_G(v_i) := \mid N_G(v_i) \mid$.</li>
+<li>Ein Graph $G \prime = (V \prime, E \prime)$ ist ein Teilgraph von
+    $G$, falls $V \prime \subseteq V$ und $E \prime \subseteq E$.</li>
+<li>Ein <strong>Weg</strong> ist eine Folge von Knoten
+    $<v_1, ..., v_k> : {v_i, v_i+1} \in E$. Hier sind Mehrfachbesuche
+    möglich.</li>
+<li>Ein <strong>Pfad</strong> ist ein Weg ohne Mehrfachbesuche.</li>
+<li>Ein <strong>Zyklus</strong> ist ein Weg, dessen letzter Knoten dem ersten
+    gleicht.</li>
+<li>Ein <strong>Kreis</strong> ist ein Pfad, dessen letzter Knoten dem ersten
+    gleicht.</li>
+<li>Ein Graph wird dann <strong>zusammenhängend</strong> genannt, wenn von jedem
+    beliebigen Knoten zu jedem beliebigen anderen Knoten ein Weg
+    existiert.</li>
+<li>Die <strong>Zusammenhangskomponente</strong> eines Graphen ist der größte
+    zusammenhängende Teilgraph des Graphen.</li>
+</ul>
+<h3 id="definition-besondere-graphen">Definition: Besondere Graphen<a class="headerlink" href="#definition-besondere-graphen" title="Permanent link"></a></h3>
+<p>Kreis</p>
+<p>Pfad</p>
+<p>Clique: Ein Graph, dessen Knoten alle mit allen anderen Knoten benachbart sind.</p>
+<p>Stern:  Ein Graph, bei dem ein Knoten mit allen anderen Knoten verbunden ist, die anderen Knoten untereinander jedoch nicht.</p>
+<p>Baum: Ein kreisfreier/azyklischer zusammenhängender Graph.</p>
+<h3 id="besondere-eigenschaften-von-graphen">Besondere Eigenschaften von Graphen<a class="headerlink" href="#besondere-eigenschaften-von-graphen" title="Permanent link"></a></h3>
+<h4 id="summe-der-knotengrade">Summe der Knotengrade<a class="headerlink" href="#summe-der-knotengrade" title="Permanent link"></a></h4>
+<p>Für jeden Graphen $G$ mit Knoten $V={v_1,&hellip;,v_n}$ und Kanten
+$E={e_1,&hellip;,e_m}$ gilt: $\sum_{v}^{V} deg_G(v) = 2m$.</p>
+<h5 id="beweis">Beweis<a class="headerlink" href="#beweis" title="Permanent link"></a></h5>
+<p><strong>Induktionshypothese:</strong> $A(m)$: für jeden Graph mit $m$ Kanten ist die
+Summe der Knotengrade $2m$\
+<strong>Induktionsanfang:</strong> zeige $A(1)$. Jeder Graph mit nur einer Kante hat
+zwei Knoten mit Grad 1, daher ist die Summe der Knotengrade 2.\
+<strong>Induktionsschritt:</strong> zeige $A(m-1) \rightarrow A(m)$ für alle
+$m \geq 2$\
+Entfernt man eine Kante von $G$ erhält man den Graphen $G&rsquo;$ Auf diesen
+kann die I.H. angewandt werden. $G&rsquo;$ hat bis auf zwei Knoten dieselben
+Knotengrade wie $G$. Die Summe der Knotengrade von $G$ ist also gleich
+der Summe der Knotengrade von $G&rsquo; + 2$. Durch Hinzufügen einer Kante zu
+$G&rsquo;$ werden die Knotengrade zweier Knoten um 1 erhöht. q.e.d.</p>
+<h4 id="farbbarkeit-und-knotengrade">Färbbarkeit und Knotengrade<a class="headerlink" href="#farbbarkeit-und-knotengrade" title="Permanent link"></a></h4>
+<p>Jeder Graph mit maximalem Knotengrad $\Delta$ ist $(\Delta+1)$-partit.</p>
+<h5 id="beweis_1">Beweis<a class="headerlink" href="#beweis_1" title="Permanent link"></a></h5>
+<p><strong>Induktionshypothese:</strong> $A(n)$: Jeder Graph mit $n$ Knoten und
+maximalem Knotengrad $\leq \delta$ ist $(\delta + 1)$-partit\
+<strong>Induktionsanfang:</strong> zeige $A(1)$. Jeder Graph mit nur einem Knoten ist
+$1$-partit.\
+<strong>Induktionsschritt:</strong> zeige $A(n-1) \rightarrow A(n)$ für alle
+$n \geq 2$\
+Entfernt man einen Knoten $v_n$ von $G$ erhält man den Graphen $G&rsquo;$ Auf
+diesen kann die I.H. angewandt werden. $G&rsquo;$ kann mit $\delta + 1$ Farben
+gefärbt werden. Wird $v_n$ wieder hinzugefügt, hat er maximal $\delta$
+Nachbarn. Daher kann $v_n$ mit der Farbe gefärbt werden, die nicht von
+seinen Nachbarn verwendet wird. q.e.d.</p>
+<h4 id="bipartite-graphen-und-ungerade-kreise">Bipartite Graphen und ungerade Kreise<a class="headerlink" href="#bipartite-graphen-und-ungerade-kreise" title="Permanent link"></a></h4>
+<blockquote>
+<p>Ein Graph ist bipartit genau dann wenn er keinen ungeraden Kreis
+enthält.</p>
+</blockquote>
+<p>Hier ist erstaunlich, dass aus der Existenz von ungeraden Kreisen die
+Nichtexistenz einer Färbung folgt und vice versa. Daher ist die Aussage
+auch in beide Richtungen zu beweisen. Während der Beweis, dass die jeder
+bipartite Kreis keinen ungeraden Kreis enthält, trivial ist, ist es die
+andere Richtung (jeder Graph ohne ungeraden Kreis ist bipartit) nicht.</p>
+<h5 id="beweis_2">Beweis<a class="headerlink" href="#beweis_2" title="Permanent link"></a></h5>
+<p><strong>Induktionshypothese:</strong> $A(n)$: Jeder Graph mit $\leq n$ Knoten und
+ohne ungeradem Kreis ist bipartit\
+<strong>Induktionsanfang:</strong> zeige $A(1)$. Jeder Graph mit nur einem Knoten ist
+bipartit.\
+<strong>Induktionsschritt:</strong> zeige $A(n-1) \rightarrow A(n)$ für alle
+$n \geq 2$\
+Betrachtet man einen beliebigen Graphen $G$ und &ldquo;verschmilzt&rdquo; alle
+Nachbarn eines Knotens $v_n$ mit diesem, kann man auf den resultierenden
+Graphen die I.H. anwenden. Hieraus folgt, dass alle Nachbarn des neuen
+Knotens und damit alle Nachbarn der Nachbarn von $v_n$ in $G$, dieselbe
+Farbe haben. Daher müssen auch alle Nachbarn von $v_n$ dieselbe Farbe
+aufweisen und $v_n$ lässt sich in der anderen Farbe färben. Das
+Hinzufügen von $v_n$ kann nicht zu einem ungeraden Kreis führen, da
+dieser sonst auch in $G&rsquo;$ vorhanden gewesen wäre.</p>
+<h3 id="gerichtete-graphen">Gerichtete Graphen<a class="headerlink" href="#gerichtete-graphen" title="Permanent link"></a></h3>
+<h4 id="allgemeines_1">Allgemeines<a class="headerlink" href="#allgemeines_1" title="Permanent link"></a></h4>
+<p>Ein gerichteter Graph $G=(V,E)$ besteht aus einer Knotenmenge $V$ und
+einer Kantenmenge $E$, so dass jede Kante $e \in E$ ein geordnetes Paar
+zweier Knoten $u,v \in V$ ist. (also: $e=(u,v)$)</p>
+<h4 id="definition-begriffe_1">Definition: Begriffe<a class="headerlink" href="#definition-begriffe_1" title="Permanent link"></a></h4>
+<p>Viele Begriffe über ungerichtete Graphen lassen sich auch für gerichtete
+Graphen anwenden (Richtung der Kanten muss hierbei Berücksichtigt
+werden). Es gibt aber noch einige weitere Begriffe, die es für
+ungerichtete Graphen nicht gibt:
+-   Eine Kante $e = (u,v)$ geht von ihrem <strong>Fuß</strong> bis zu ihrem <strong>Kopf</strong>.
+    Hier ist $u$ ein <strong>Vorgänger</strong> von $v$ und $v$ ein <strong>Nachfolger</strong>
+    von $u$.
+-   Die <strong>Vorgängerschaft</strong> $N_G^-(v)$ ist die Menge der Vorgänger von
+    $v$.
+-   Die <strong>Nachfolgerschaft</strong> $N_G^+(v)$ ist die Menge der Nachfolger von
+    $v$.
+-   <strong>Eingangsgrad</strong> $deg_G^-(v) := \mid N_G^-(v) \mid$
+-   <strong>Ausgangsgrad</strong> $deg_G^+(v) := \mid N_G^+(v) \mid$
+-   Eine Folge $v_1,&hellip;,v_n$ von Knoten ist eine <strong>topologische
+    Sortierung</strong> von $G=(V,E)$, falls für jede Kante $(v_i, v_j) \in E$
+    gilt, dass $i&lt;j$ und $V={v_1,&hellip;,v_n}$.</p>
+<h4 id="topologische-sortierung-azyklischer-graphen">Topologische Sortierung azyklischer Graphen<a class="headerlink" href="#topologische-sortierung-azyklischer-graphen" title="Permanent link"></a></h4>
+<blockquote>
+<p>Jeder azyklische gerichtete Graph hat eine topologische Sortierung.</p>
+</blockquote>
+<h5 id="beweis_3">Beweis<a class="headerlink" href="#beweis_3" title="Permanent link"></a></h5>
+<p><strong>Lemma:</strong> Jeder gerichteter azyklischer Graph enthält eine Senke (d.h.
+Ausgangsgrad 0)\
+<strong>Induktionshypothese:</strong> $A(n)$: Jeder azyklische gerichtete Graph mit
+$n$ Knoten hat eine topologische Sortierung.\
+<strong>Induktionsanfang:</strong> zeige $A(1)$: Jeder Graph mit nur einem Knoten hat
+eine topologische Sortierung.\
+<strong>Induktionsschritt:</strong> zeige $A(n-1) \rightarrow A(n)$ für alle
+$n \geq 2$\
+Entfernt man $v_n$ (eine Senke, die laut Lemma existiert) aus einem
+beliebigen Graphen $G$, so lässt sich auf den resultierenden Graphen
+$G&rsquo;$ die I.H. anwenden. Die topologische Sortierung von $G&rsquo;$ ist
+$v_1,&hellip;,v_{n-1}$. Daher ist $v_1,&hellip;,v_{n-1},v_n$ eine topologische
+Sortierung von $G$. q.e.d.</p>
+<h2 id="graphenalgorithmen">Graphenalgorithmen<a class="headerlink" href="#graphenalgorithmen" title="Permanent link"></a></h2>
+<h3 id="gierige-knotenfarbung">Gierige Knotenfärbung<a class="headerlink" href="#gierige-knotenfarbung" title="Permanent link"></a></h3>
+<p><div class="codehilite"><pre>Für alle Knoten v in G (beliebige Reihenfolge):
+    Färbe v mit der ersten Farbe, die noch von keinem Nachbarn von v verwendet wird.
+</pre></div>
+-   natürlich-sprachliche Beschreibung, dennoch präzise
+-   Algorithmus entspricht Induktionsbeweis für Färbung mit $\delta + 1$ Farben</p>
+<h3 id="bipartition">Bipartition<a class="headerlink" href="#bipartition" title="Permanent link"></a></h3>
+<p><div class="codehilite"><pre>1. Wähle beliebigen Knoten v und färbe ihn rot.
+2. Setze S &lt;- {v} und t &lt;- 0
+3. Wiederhole solange S Nachbarn in V_G \ S hat:
+    1. Färbe die Nachbarn von S in V_G \ S grün.
+    2. Setze S &lt;- S vereinigt mit N_G(S) und t &lt;- t+1.
+</pre></div>
+-   Algorithmus findet gültige Bipartition, wenn der Graph keinen ungeraden Kreis enthält.
+-   Algorithmus entspricht Induktionsbeweis für Bipartition und ungerade Kreise.</p>
+<h3 id="tiefensuche">Tiefensuche<a class="headerlink" href="#tiefensuche" title="Permanent link"></a></h3>
+<p><div class="codehilite"><pre>1. Beginne mit Stapel S, der nur den Knoten v enthält
+2. Wiederhle, solange S nicht leer ist:
+    a. sei w der oberste Knoten auf Stapel S
+    b. falls w als besucht markiert ist, entferne w von S
+    c. falls w nicht als besucht markiert ist, markiere w als besucht und lege alle nicht besuchten Nachfolger von w oben auf S
+</pre></div>
+- Falls zu Beginn keine Knoten markiert sind, besucht die Tiefensuche von Knoten $v$ aus genau die Knoten, die von $v$ erreichbar sind. Beweis: Induktion über die Knoten eines beliebigen Weges von Knoten $w_0$ zu Knoten $w_i$.
+-   Falls zu Beginn schon eine Knotenmenge $X \subseteq V$ als besucht markiert ist, dann besucht die Tiefensuche von $v$ aus genau die Knoten, die durch Wege, die $X$ vermeiden erreichbar sind.
+- Mit der Tiefensuche lassen sich Zusammenhangskomponenten finden
+- Wird bei der Ausführung der Tiefensuche zu jedem Knoten notiert, wann er das erste mal auf den Stapel gelegt und wieder gelöscht wurde (Nummer der Iteration des Algorithmus), so kann aus diesen Intervallen ($pre_v$ und $post_v$) ein Tiefensuchbaum erstellt werden. In diesem lassen sich Vorwärts-, Rückwärts- und Quer-Kanten ablesen. Diese Kantentypen resultieren aus der Ausführungsreihenfolge des Algorithmus (!).
+-   Werden die Knoten absteigend nach $post_v$sortiert, so ergibt sich eine topologische Sortierung</p>
+<h3 id="breitensuche">Breitensuche<a class="headerlink" href="#breitensuche" title="Permanent link"></a></h3>
+<div class="codehilite"><pre>    1. Beginne mit dem Array dist, in dem jedes Element für einen Knoten steht und als Wert die Distanz zum gegebenen Startknoten s enthalten soll. Die Werte werden zunächst als unendlich initialisiert bis auf den Wert für s, der auf 0 gesetzt wird.
+    2. Q &lt;- Schlange mit Knoten s als einziges Element
+    3. Wiederhole, solange Q nicht leer ist:
+        a. u &lt;- dequeue(Q)
+        b. Wiederhole für jeden Nachbarn v von u:
+            i. Wenn der in dist gespeicherte Wert für v gleich unendlich ist, speichere dist[v] &lt;- dist[u]+1 und enqueue(Q,v)
+</pre></div>
+
+<h2 id="reprasentationen-von-graphen">Repräsentationen von Graphen<a class="headerlink" href="#reprasentationen-von-graphen" title="Permanent link"></a></h2>
+<h3 id="adjazenzmatrix">Adjazenzmatrix<a class="headerlink" href="#adjazenzmatrix" title="Permanent link"></a></h3>
+<h4 id="definition">Definition<a class="headerlink" href="#definition" title="Permanent link"></a></h4>
+<p>Die Adjazenzmatrix von $G$ ist eine Matrix $A$ mit $n$ Zeilen und
+Spalten, sodass für jeden Eintrag $A_{ij}$ gilt: $$A_{ij} = 
+\begin{cases}
+0 &amp; (v_i,v_j) \notin E\
+1 &amp; (v_i,v_j) \in E
+\end{cases}$$
+-   Laufzeit $O(1)$ für Abfrage ob eine Kante $(v_i,v_j)$ existiert
+-   Laufzeit $O(n)$ für Abfrage aller Nachfolger eines Knotens</p>
+<h3 id="adjazenzliste">Adjazenzliste<a class="headerlink" href="#adjazenzliste" title="Permanent link"></a></h3>
+<h4 id="definition_1">Definition<a class="headerlink" href="#definition_1" title="Permanent link"></a></h4>
+<p>Die Adjazenzliste von $G$ ist eine Tabelle $A$ mit $n$ Einträgen, sodass
+der Eintrag $A_i$ eine Liste aller Nachfolger von $v_i$ enthält.
+-   Laufzeit $O(deg^+(v_i)+1)$ für Abfrage ob eine Kante $(v_i,v_j)$ existiert
+-   Laufzeit $O(deg^+(v_i)+1)$ für Abfrage aller Nachfolger eines Knotens $v_i$</p>
+<h2 id="algorithmen">Algorithmen<a class="headerlink" href="#algorithmen" title="Permanent link"></a></h2>
+<h3 id="effizienz-von-algorithmen">Effizienz von Algorithmen<a class="headerlink" href="#effizienz-von-algorithmen" title="Permanent link"></a></h3>
+<p>Algorithmen können effizient (bspw. Anwendung von &ldquo;Logischen Schlüssen&rdquo;)
+oder ineffizient (bspw. naives Ausprobieren) sein. Die genaue Laufzeit
+eines Algorithmus hängt von vielen technischen Details ab. Diese Details
+spielen keine Rolle für die Bewertung der Effizienz von Algorithmen.
+Hierfür wird ein vereinfachtes Berechnungs- und Kostenmodell verwendet.</p>
+<h4 id="allgemeines-berechnungsmodell">Allgemeines Berechnungsmodell<a class="headerlink" href="#allgemeines-berechnungsmodell" title="Permanent link"></a></h4>
+<h5 id="komponenten-eines-computers">Komponenten eines Computers<a class="headerlink" href="#komponenten-eines-computers" title="Permanent link"></a></h5>
+<p>Speicher: A-priori unbegrenzt viele addressierbare Speicherzellen
+Prozessor:Führt elementare Operationen aus
+Bus: Verbindet Prozessor und Speicher</p>
+<h4 id="laufzeit">Laufzeit<a class="headerlink" href="#laufzeit" title="Permanent link"></a></h4>
+<h5 id="definition_2">Definition<a class="headerlink" href="#definition_2" title="Permanent link"></a></h5>
+<p>Ein Algorithmus $A$ hat die Laufzeit $f$, falls $f(n) =$ maximale Laufzeit von $A$ über alle Eingaben der Grösse $n$.
+-   Anzahl der elementaren Oprationen, die der Prozessor ausführt
+-   Die Grösse $n$ kann von mehreren Parametern abhängen, dann ist Laufzeit Funktion dieser Parameter</p>
+<h4 id="asymptotische-notation">Asymptotische Notation<a class="headerlink" href="#asymptotische-notation" title="Permanent link"></a></h4>
+<h5 id="definition-obere-schranke">Definition obere Schranke<a class="headerlink" href="#definition-obere-schranke" title="Permanent link"></a></h5>
+<p>Für Funktionen $f(n)$ besteht $O(f)$ aus allen Funktionen $g(n)$, sodass
+gilt: $\exists C &gt; 0. \forall n \geq 1. g(n) \leq C*f(n)$\
+Falls $g(n) \in O(f)$, sagen wir &ldquo;$g(n)$ hat die Grössenordnung
+höchstens $f(n)$&rdquo; oder &ldquo;$f(n)$ ist bis auf konstante Faktoren beschränkt
+durch $f(n)$&rdquo; und schreiben $g(n) \leq O(f(n))$</p>
+<h5 id="definition-untere-schranke">Definition untere Schranke<a class="headerlink" href="#definition-untere-schranke" title="Permanent link"></a></h5>
+<p>Für Funktionen $f(n)$ besteht $\Omega(f)$ aus allen Funktionen $g(n)$,
+sodass gilt: $\exists C &gt; 0. \forall n \geq 1. g(n) \geq C*f(n)$\
+Falls $g(n) \in \Omega(f)$, schreiben wir $g(n) \geq \Omega(f(n))$.</p>
+<h5 id="definition-asymptotisch-genaues-wachstum">Definition asymptotisch genaues Wachstum<a class="headerlink" href="#definition-asymptotisch-genaues-wachstum" title="Permanent link"></a></h5>
+<p>$\Theta(g(n)) = \Omega(g(n)) \cap O(g(n))$
+$f(n) \in \Theta(g(n)) \Leftrightarrow f(n)=\Theta(g(n))$</p>
+<p>Aufgrund der großen Unterschiede der tatsächlichen Kosten der
+elementaren Operationen macht es wenig Sinn zwischen Laufzeiten von
+$10<em>n$ und $1000</em>n$ zu unterscheiden.</p>
+<h2 id="algorithmenentwurf-maximum-subarray-sum">Algorithmenentwurf - Maximum Subarray Sum<a class="headerlink" href="#algorithmenentwurf-maximum-subarray-sum" title="Permanent link"></a></h2>
+<p>Im folgenden wird am Beispiel des Maximum Subarray Problems der Prozess
+des Algorithmenentwurfes dargestellt. Dafür werden nach einer
+Vorstellung des Problems verschiedene Algorithmen betrachtet und anhand
+ihrer Laufzeit miteinander verglichen.</p>
+<h3 id="das-problem">Das Problem<a class="headerlink" href="#das-problem" title="Permanent link"></a></h3>
+<p>Gegeben ist eine Folge von Zahlen $a_1,&hellip;,a_n \in \mathbb{Z}$. Gesucht
+ist eine Teilfolge hieraus, wobei die Summe der Elemente der Teilfolge
+maximal sein soll, mindestens aber größer als 0. Sind alle Elemente der
+Folge kleiner als Null, so ist die Summe gleich 0.</p>
+<h3 id="algorithmus-1-naiv">Algorithmus 1: Naiv<a class="headerlink" href="#algorithmus-1-naiv" title="Permanent link"></a></h3>
+<h4 id="idee">Idee<a class="headerlink" href="#idee" title="Permanent link"></a></h4>
+<p>Einfach alles ausprobieren</p>
+<h4 id="pseudocode">Pseudocode<a class="headerlink" href="#pseudocode" title="Permanent link"></a></h4>
+<div class="codehilite"><pre>für i = 1...n
+    für j i...n
+        S = Summe von k=i bis j über a_k
+        merke max(S)
+</pre></div>
+
+
+<h4 id="laufzeit_1">Laufzeit<a class="headerlink" href="#laufzeit_1" title="Permanent link"></a></h4>
+<p>Schleifen können als Summen dargestellt werden. Daher ist die Laufzeit:
+$\sum_{i=1}^{n}\sum_{k=i}^n(j-i)$ Dies lässt sich nach oben abschätzen
+durch: $\sum_{i=1}^{n}\sum_{j=1}^{n}(n) = n^3$ und nach unten durch:
+$\sum_{i=1}^{\frac{n}{3}}\sum_{j=\frac{2}{3}}^{n}(\frac{n}{3}) = \frac{n^3}{27}$
+Damit lässt sich die Laufzeit auf $\Theta(n^3)$ bestimmen.</p>
+<h3 id="algorithmus-2-vorberechnung">Algorithmus 2: Vorberechnung<a class="headerlink" href="#algorithmus-2-vorberechnung" title="Permanent link"></a></h3>
+<h4 id="idee_1">Idee<a class="headerlink" href="#idee_1" title="Permanent link"></a></h4>
+<p>Mithilfe von vorberechneten Präfixsummen lässt sich der Rechenaufwand
+verringern</p>
+<h4 id="pseudocode_1">Pseudocode<a class="headerlink" href="#pseudocode_1" title="Permanent link"></a></h4>
+<div class="codehilite"><pre>S_0 = 0
+für i = 1...n
+    S_i = S_{i-1} + a_i
+für i = 1...n
+    für j i...n
+        S = S_j - S_{i-1}
+        merke max(S)
+</pre></div>
+
+
+<h4 id="laufzeit_2">Laufzeit<a class="headerlink" href="#laufzeit_2" title="Permanent link"></a></h4>
+<p>Die Vorberechnung ist mit einem Schleifendurchgang und jeweils einer
+Operation in $O(n)$. Für das durchlaufen der beiden anderen Schleifen
+mit jeweils einer Operation ist die Laufzeit hierfür $O(n^2)$. Damit
+lässt sich die Laufzeit auf $\Theta(n^2)$ bestimmen.</p>
+<h3 id="algorithmus-3-divide-and-conquer">Algorithmus 3: Divide and Conquer<a class="headerlink" href="#algorithmus-3-divide-and-conquer" title="Permanent link"></a></h3>
+<h4 id="idee_2">Idee<a class="headerlink" href="#idee_2" title="Permanent link"></a></h4>
+<p>Teilen des Problems in kleinere Teilprobleme (hier halbiere die Folge)
+Für die in der Mitte geteilte Folge gibt es drei Lösungsmöglichkeiten:</p>
+<ol>
+<li>
+<p>Die gesuchte Teilfolge liegt in der ersten Hälfte</p>
+</li>
+<li>
+<p>Die gesuchte Teilfolge liegt in der zweiten Hälfte</p>
+</li>
+<li>
+<p>Die gesuchte Teilfolge liegt über der Trennung</p>
+</li>
+</ol>
+<p>Während das Finden der richtigen Lösung sehr simpel ist wird für den
+dritten Fall eine nicht-triviale Eigenshcaft genutzt: Die größte Folge,
+die über der Trennung liegt besteht aus der größten Suffixsumme links
+der Trennung und der größten Präfixsumme rechts der Trennung.</p>
+<h4 id="pseudocode_2">Pseudocode<a class="headerlink" href="#pseudocode_2" title="Permanent link"></a></h4>
+<div class="codehilite"><pre>n=1:
+    trivial
+n &gt; 1:
+    teile Array in Hälften
+    löse Problem für linke Hälfte
+    löse Problem für rechte Hälfte
+    Berechne größte Teilfolge über Trennung
+    Vergleiche drei Lösungen für Gesamtlösung
+</pre></div>
+
+
+<h4 id="laufzeit_3">Laufzeit<a class="headerlink" href="#laufzeit_3" title="Permanent link"></a></h4>
+<p>Das Bestimmen der Laufzeit ist ebenso rekursiv, wie der Algorithmus.
+Während das Teilen des Arrays und der Vergleich in $O(1)$ und die
+Berechnnung für eine die Trennung überlappende Teilfolge in
+$O(n)$liegen, ist die Lösung für die linke und rechte Hälfte jeweils die
+Laufzeit des Algorithmus halbiert, also $T(\frac{n}{2})$. Daher ergibt
+sich für die Gesamtlaufzeit $T(n) = 2T(\frac{n}{2})+a*n$. Durch
+teleskopieren lässt sich dies vereinfachen zu $O(n log n)$</p>
+<h3 id="algorithmus-4-induktiv">Algorithmus 4: Induktiv<a class="headerlink" href="#algorithmus-4-induktiv" title="Permanent link"></a></h3>
+<h4 id="idee_3">Idee<a class="headerlink" href="#idee_3" title="Permanent link"></a></h4>
+<p>Induktion über die Subarrays: Wandert man von links nach rechts durch
+die Folge, so lässt sich für jedes Element untersuchen, ob es mit der
+größten Suffixsumme (randmax) bis zu diesem Element ein neues Maximum
+bildet.</p>
+<h4 id="pseudocode_3">Pseudocode<a class="headerlink" href="#pseudocode_3" title="Permanent link"></a></h4>
+<div class="codehilite"><pre>max = 0
+randmax = 0
+für i=1...n
+    randmax = randmax + a_i
+    if randmax &gt; max
+        max = randmax
+    if randmax &lt; 0
+        randmax = 0
+</pre></div>
+
+
+<p>Der Algorithmus lässt sich durch Induktion beweisen.</p>
+<h4 id="laufzeit_4">Laufzeit<a class="headerlink" href="#laufzeit_4" title="Permanent link"></a></h4>
+<p>Da die Schleife nur einmal durchlaufen wird und dabei eine Konstante
+Anzahl an Operationen unabhängig von der Eingabemenge ausgeführt wird,
+ist die Laufzeit auf $O(n)$ bestimmbar.</p>
+<h3 id="die-komplexitat-des-problems">Die Komplexität des Problems<a class="headerlink" href="#die-komplexitat-des-problems" title="Permanent link"></a></h3>
+<p>Die Frage, ob der induktive Ansatz den optimalen Weg zur Lösung des
+Problems darstellt entspricht der Frage nach der Komplexität des
+Problems. In diesem Fall lässt sich die Frage beantworten durch eine
+Prüfung, ob ein Algorithmus jedes Element betrachten muss, um an die
+richtige Lösung zu gelangen, wie es in unserer besten Version getan
+wird. Mit einem indirekten Beweis ist schnell gezeigt, dass es so ist.
+Dadurch lässt sich die Komplexität des Maximum Subarray Problems auf
+$O(n)$ bestimmen.</p>
+<h3 id="komplexitat-und-laufzeit">Komplexität und Laufzeit<a class="headerlink" href="#komplexitat-und-laufzeit" title="Permanent link"></a></h3>
+<p>Aus der Laufzeit eines Algorithmus lassen sich Aussagen über die
+Komplexität des Problems treffen und vice versa. Im Folgenden steht
+jeweils vor dem Pfeil die Komplexität des Algorithmus und nach dem Pfeil
+die Laufzeit irgendeines Algorithmus, der das Problem löst:
+$$\begin{gathered}
+O(f(n)) \longleftarrow O(f(n))\
+\text{keine Aussage möglich} \longleftarrow \Omega(f(n))\
+O(f(n)) \longleftarrow \Theta(f(n))\
+O(f(n)) \longrightarrow \text{keine Aussage möglich}
+\Omega(f(n)) \longrightarrow \Omega(f(n))
+\Theta(f(n)) \longrightarrow \Omega(f(n))\end{gathered}$$</p>
+<h2 id="algorithmenentwurf-suche">Algorithmenentwurf - Suche<a class="headerlink" href="#algorithmenentwurf-suche" title="Permanent link"></a></h2>
+<p>Für die Suche gibt es zwei Problemstellungen. Zum einen ist die Suche
+nach einem bestimmten Element in einem sortierten Array gefragt, zum
+anderen soll nach einem Element in einem unsortierten Array gesucht
+werden.</p>
+<h3 id="algorithmus-1-binare-suche-im-sortierten-array">Algorithmus 1: Binäre Suche im sortierten Array<a class="headerlink" href="#algorithmus-1-binare-suche-im-sortierten-array" title="Permanent link"></a></h3>
+<h4 id="idee_4">Idee<a class="headerlink" href="#idee_4" title="Permanent link"></a></h4>
+<p>Durch Aufteilen des Arrays kann der &ldquo;Suchbereich&rdquo; eingegrenzt werden.</p>
+<h4 id="pseudocode-rekursiv">Pseudocode rekursiv<a class="headerlink" href="#pseudocode-rekursiv" title="Permanent link"></a></h4>
+<div class="codehilite"><pre>BinarySearch(A,b):
+    if A empty: &quot;not found&quot;
+    m = floor(n/2) // nach unten gerundet
+    if A[m] = b: return 
+    else: BinarySearch(A[m+1-n],b) // n ist die Länge von A
+</pre></div>
+
+
+<h4 id="pseudocode-iterativ">Pseudocode iterativ<a class="headerlink" href="#pseudocode-iterativ" title="Permanent link"></a></h4>
+<div class="codehilite"><pre>BinarySearch(A,b):
+    l = 1; r = n;
+    if l&gt;r: return not found
+    while l &lt;= r:
+        m = floor((l+r)/2)
+        if A[m] = b: return m
+        if b &lt; A[m]: r = m-1
+        else: l = m + 1
+</pre></div>
+
+
+<h4 id="laufzeit_5">Laufzeit<a class="headerlink" href="#laufzeit_5" title="Permanent link"></a></h4>
+<p>Die Laufzeit ist bei asymptotischer Betrachtung gleich groß, egal ob
+rekursiv oder iterativ gearbeitet wird. Sie kann als Rekurrenzgleichung
+$T(n)=T(\frac{n}{2})+d, T(1)=c$dargestellt werden. Das ist dasselbe wie
+$T(n)=c+log_2(n)*d \leq \mathcal{O}(log(n))$.</p>
+<h3 id="algorithmus-2-interpolationssuche-im-sortierten-array">Algorithmus 2: Interpolationssuche im sortierten Array<a class="headerlink" href="#algorithmus-2-interpolationssuche-im-sortierten-array" title="Permanent link"></a></h3>
+<h4 id="idee_5">Idee<a class="headerlink" href="#idee_5" title="Permanent link"></a></h4>
+<p>Mithilfe einer guten Schätzung kann der Index $m$ angenähert werden.</p>
+<h4 id="formel-fur-m">Formel für m<a class="headerlink" href="#formel-fur-m" title="Permanent link"></a></h4>
+<p>$$m=floor(l+\frac{b-A[n]}{A[l]-A[r]}(r-l))$$</p>
+<h4 id="laufzeit_6">Laufzeit<a class="headerlink" href="#laufzeit_6" title="Permanent link"></a></h4>
+<p>Worst case: $\mathcal{O}(n)$\
+Best case: $\mathcal{O}(log(log(n)))$</p>
+<h3 id="komplexitat-des-problems">Komplexität des Problems<a class="headerlink" href="#komplexitat-des-problems" title="Permanent link"></a></h3>
+<p>Wird die vergleichsbasierte Suche als Entscheidungsbaum betrachtet, so
+ist die Anzahl der Knoten in dem Baum $n$, die Höhe des Baumes $h$. In
+dieser Modellierung ist die minimale Höhe des Baumes die untere Schranke
+der Komplexität des Problems. Ein binärer Baum der Höhe $h$ hat
+höchstens $2^{h+1}-1 &lt; 2^h$ Knoten. Dadurch folgt direkt, dass $n&lt;2^h$
+ist, wodurch $h &gt; log_2(n)$ folgt. Damit ist die Komplexität des
+Problems bei $\Omega(log(n))$.</p>
+<h3 id="algorithmus-3-lineare-suche-im-unsortierten-array">Algorithmus 3: Lineare Suche im unsortierten Array<a class="headerlink" href="#algorithmus-3-lineare-suche-im-unsortierten-array" title="Permanent link"></a></h3>
+<h4 id="idee_6">Idee<a class="headerlink" href="#idee_6" title="Permanent link"></a></h4>
+<p>Das gesamte Array wird Schritt für Schritt abgesucht.</p>
+<h4 id="pseudocode_4">Pseudocode<a class="headerlink" href="#pseudocode_4" title="Permanent link"></a></h4>
+<div class="codehilite"><pre>LinearSearch(A,b):
+    for i=1...n:
+        if A[i] == b: return i
+    return &#39;not found&#39;
+</pre></div>
+
+
+<h4 id="laufzeit_7">Laufzeit<a class="headerlink" href="#laufzeit_7" title="Permanent link"></a></h4>
+<p>$\mathcal{O}(n)$</p>
+<h3 id="komplexitat-des-problems_1">Komplexität des Problems<a class="headerlink" href="#komplexitat-des-problems_1" title="Permanent link"></a></h3>
+<p>Argument 1: Das b muss mit allen Elementen im Array verglichen werden.
+Argument 2: Da Argument 1 auslässt, dass auch innerhalb des Arrays
+Vergleiche angestellt werden können um die Laufzeit zu verringern, muss
+dies in einer anderen Betrachtung berücksichtigt werden. In diesem Fall
+kann ein Algorithmus zunächst $r$ Vergleiche im Array durchführen und es
+so in Gruppen einteilen. Um diese Gruppen zu verschmelzen müssen aber
+für jedes Paar zweier Gruppen mindestens ein Vergleich angestellt
+werden. Vergleicht man nun b mit allen Gruppen, so erhält man
+schließlich mindestens $n$ Vergleiche. $\Omega(n)$ ist also tatsächlich
+die Komplexität des Problems.</p>
+<h2 id="algorithmenentwurf-sortieren">Algorithmenentwurf - Sortieren<a class="headerlink" href="#algorithmenentwurf-sortieren" title="Permanent link"></a></h2>
+<h3 id="das-problem_1">Das Problem<a class="headerlink" href="#das-problem_1" title="Permanent link"></a></h3>
+<p>Input: Array $A$ der Länge $n$. Output: Permutation $A&rsquo;$ von $A$, sodass
+die Werte in $A&rsquo;$ aufsteigend sortiert sind.</p>
+<h3 id="algorithmus-0-prufung">Algorithmus 0: Prüfung<a class="headerlink" href="#algorithmus-0-prufung" title="Permanent link"></a></h3>
+<div class="codehilite"><pre>isSorted(A):
+    for i=1...n-1:
+        if A[i] &gt; A[i+1]: return false
+    return true
+</pre></div>
+
+<h3 id="algorithmus-1-bubblesort">Algorithmus 1: BubbleSort<a class="headerlink" href="#algorithmus-1-bubblesort" title="Permanent link"></a></h3>
+<h4 id="idee_7">Idee<a class="headerlink" href="#idee_7" title="Permanent link"></a></h4>
+<p>Naives verschieben großer Elemente an das Ende</p>
+<h4 id="pseudocode_5">Pseudocode<a class="headerlink" href="#pseudocode_5" title="Permanent link"></a></h4>
+<div class="codehilite"><pre>BubbleSort(A):
+    for j=1...n-1
+        for i=1...n-1
+            if A[i] &gt; A[i+1]: swap(A[i], A[i+1])
+</pre></div>
+
+<h4 id="laufzeit_8">Laufzeit<a class="headerlink" href="#laufzeit_8" title="Permanent link"></a></h4>
+<p>Nach Verbesserungen:
+$$\sum_{j=1}^{n-1}\sum_{i=1}^{n-j}1=\sum_{j=1}^{n-1}(n-j) \leq O(n^2)$$</p>
+<h3 id="algorithmus-2-selectionsort">Algorithmus 2: SelectionSort<a class="headerlink" href="#algorithmus-2-selectionsort" title="Permanent link"></a></h3>
+<h4 id="idee_8">Idee<a class="headerlink" href="#idee_8" title="Permanent link"></a></h4>
+<p>Induktiver Ansatz: baue die Lösung von links nach rechts. Iteriere über
+den Array, wobei zu jedem Zeitpunkt alles schon betrachtete korrekt ist,
+d.h. alle Elemente sind an der richtigen Stelle. Rechts von der aktuell
+betrachteten Position ist dabei alles unsortiert.</p>
+<h4 id="pseudocode_6">Pseudocode<a class="headerlink" href="#pseudocode_6" title="Permanent link"></a></h4>
+<div class="codehilite"><pre>SelectionSort(A):
+    for i=1...n-1
+        j=Index vom Minimum in A[i...n]
+        swap(A[i],A[j])
+</pre></div>
+
+<h4 id="laufzeit_9">Laufzeit<a class="headerlink" href="#laufzeit_9" title="Permanent link"></a></h4>
+<p>Für die Minimumsuche: $n-i$\
+Gesamt:
+$$\sum_{i=1}^{n-1}(n-i)=n-1+n-2+n-3+&hellip;+1=\frac{n(n-1)}{2} \leq O(n^2)$$</p>
+<h3 id="algorithmus-3-insertionsort">Algorithmus 3: InsertionSort<a class="headerlink" href="#algorithmus-3-insertionsort" title="Permanent link"></a></h3>
+<h4 id="idee_9">Idee<a class="headerlink" href="#idee_9" title="Permanent link"></a></h4>
+<p>Induktiv wie SelectionSort. Hier sind aber die Elemente links des
+betrachteten Elementes nur sortiert, nicht bereits an der richtigen
+Stelle.</p>
+<h4 id="pseudocode_7">Pseudocode<a class="headerlink" href="#pseudocode_7" title="Permanent link"></a></h4>
+<div class="codehilite"><pre>InsertionSort(A):
+    for i=1...n-1
+        j=BinarySearch(A[1...i], A[i+1]) //findet Stelle, an der eingesetzt werden muss
+    A[j] = A[i+1]
+    A[j+1...i+1] = A[j...i] //verschiebe Array
+</pre></div>
+
+<h4 id="laufzeit_10">Laufzeit<a class="headerlink" href="#laufzeit_10" title="Permanent link"></a></h4>
+<p>$O(n log n)$ Vergleiche und $O(n^2)$ Tauschoperationen.</p>
+<h3 id="algorithmus-4-heapsort">Algorithmus 4: Heapsort<a class="headerlink" href="#algorithmus-4-heapsort" title="Permanent link"></a></h3>
+<h4 id="idee_10">Idee<a class="headerlink" href="#idee_10" title="Permanent link"></a></h4>
+<p>Aufbau eines Max-Heaps. Die Eingabe ist hier der Array, der zunächst zu
+einem Heap umgeformt werden muss.</p>
+<h4 id="pseudocode_8">Pseudocode<a class="headerlink" href="#pseudocode_8" title="Permanent link"></a></h4>
+<div class="codehilite"><pre>HeapSort(A):
+    for i=floor(n/2)...1: 
+        restoreHeapCondition(A,i,n)
+    for i=n...2:
+        swap(A[i],A[1])
+        restoreHeapCondition(A,1,i-1)
+</pre></div>
+
+<h4 id="laufzeit_11">Laufzeit<a class="headerlink" href="#laufzeit_11" title="Permanent link"></a></h4>
+<p>Anzahl der Vergleiche:
+$0<em>2^d+2</em>2^{d-1}+&hellip;+2d<em>2^{d-d} = \sum_{i=1}^{d-1}2^i</em>s(d-i) \leq O(2^d) = O(n)$.
+Aber: $n$ calls der restoreHeapCondition Funktion, daher $O(nlogn)$</p>
+<h3 id="algorithmus-5-mergesort">Algorithmus 5: MergeSort<a class="headerlink" href="#algorithmus-5-mergesort" title="Permanent link"></a></h3>
+<h4 id="idee_11">Idee<a class="headerlink" href="#idee_11" title="Permanent link"></a></h4>
+<p>Divide-and-Conquer</p>
+<h4 id="pseudocode_9">Pseudocode<a class="headerlink" href="#pseudocode_9" title="Permanent link"></a></h4>
+<div class="codehilite"><pre>MergeSort(A,l,r):
+    if l&lt;r:
+        m=floor((l+r)/2)
+        MergeSort(A,l,m)
+        MergeSort(A,m+1,r)
+        Merge(A,l,m,r)
+
+Merge(A,l,m,r):
+    i=l
+    j=m+1
+    k=l
+    while i &lt;= m &amp;&amp; j &lt;= r:
+        if A[i]  &lt; A[j]:
+            B[k]=A[i]
+            i++
+            k++
+        else:
+            B[k] = A[j]
+            j++
+            k++
+    use rest left to right
+    A = B
+</pre></div>
+
+<h4 id="laufzeit_12">Laufzeit<a class="headerlink" href="#laufzeit_12" title="Permanent link"></a></h4>
+<p>$$T(n) = 2 T(\frac{n}{2}+cn \leq O(nlogn)$$ Wichtig: Extraspeicher
+$O(n)$ !!!</p>
+<h3 id="algorithmus-6-quicksort">Algorithmus 6: QuickSort<a class="headerlink" href="#algorithmus-6-quicksort" title="Permanent link"></a></h3>
+<h4 id="idee_12">Idee<a class="headerlink" href="#idee_12" title="Permanent link"></a></h4>
+<p>In dem Array wird ein Pivotelement gewählt und an die richtige Stelle
+vertauscht, sodass alle Elemente links davon kleiner, und alle Element
+rechts davon größer sind.</p>
+<h4 id="pseudocode_10">Pseudocode<a class="headerlink" href="#pseudocode_10" title="Permanent link"></a></h4>
+<div class="codehilite"><pre>QuickSort(A,l,r):
+    k=Aufteilen(A,l,r)
+    QuickSort(A,l,k-1)
+    QuickSort(A,k+1,r)
+
+Aufteilen(A,l,r): //Pivot ist hier immer mostright
+    i=l
+    j=r-1
+    p=A[r]
+    repeat:
+        while i&lt;r and A[i]&lt;p: i++
+        while j&gt;l and A[j]&gt;p: j++
+        if i&lt;j: swap(A[j],A[i])
+    until i &gt;= j
+    swap(A[i],A[r]) // Pivottausch
+    return i
+</pre></div>
+
+<h4 id="laufzeit_13">Laufzeit<a class="headerlink" href="#laufzeit_13" title="Permanent link"></a></h4>
+<p>Abhängig von der Pivotwahl. Best case: $O(n log n)$, Worst case
+$O(n^2)$.</p>
+<h3 id="komplexitat-des-problems_2">Komplexität des Problems<a class="headerlink" href="#komplexitat-des-problems_2" title="Permanent link"></a></h3>
+<p>Wird die vergleichsbasierte Sortierung als Entscheidungsbaum betrachtet,
+so ist die Anzahl der Knoten in dem Baum $n$, die Höhe des Baumes $h$.
+In dieser Modellierung ist die minimale Höhe des Baumes die untere
+Schranke der Komplexität des Problems. Die Blätter des Baumes
+entsprechen den Permustationen des Eingabearrays ($n!$). Ein Baum der
+Höhe $h$ hat maximal $2^h$ Blätter. Daher gilt hier
+$2^h \geq n! \Longrightarrow n \geq log(n!) \geq \Omega(nlogn)$.</p>
+<h2 id="abstrakte-datentypen-datenstrukturen">Abstrakte Datentypen &amp; Datenstrukturen<a class="headerlink" href="#abstrakte-datentypen-datenstrukturen" title="Permanent link"></a></h2>
+<h3 id="abstrakte-datentypen">Abstrakte Datentypen<a class="headerlink" href="#abstrakte-datentypen" title="Permanent link"></a></h3>
+<h4 id="adt-stapel-engl-stack">ADT Stapel (engl. stack)<a class="headerlink" href="#adt-stapel-engl-stack" title="Permanent link"></a></h4>
+<ul>
+<li>LIFO = last in, first out</li>
+<li>top() fragt oberstes Objekt ab</li>
+<li>push() legt neues Objekt auf den Stapel</li>
+<li>pop() entfernt oberstes Objekt vom Stapel</li>
+<li>push(), pop() und top() haben jeweils $O(1)$</li>
+</ul>
+<h4 id="adt-schlange-engl-queue">ADT Schlange (engl. queue)<a class="headerlink" href="#adt-schlange-engl-queue" title="Permanent link"></a></h4>
+<ul>
+<li>FIFO = last in, first out</li>
+<li>top() fragt vorderstes Objekt ab</li>
+<li>enqueue() fügt neues Objekt der Schlange hinzu</li>
+<li>dequeue() entfernt vorderstes Objekt</li>
+<li>push(), pop() und top() haben jeweils $O(1)$</li>
+</ul>
+<h4 id="adt-priority-queue">ADT Priority Queue<a class="headerlink" href="#adt-priority-queue" title="Permanent link"></a></h4>
+<ul>
+<li>insert(x, P): fügt x ein</li>
+<li>extractMax(P): entfernt Maximum</li>
+</ul>
+<h4 id="adt-worterbuch-dictionary">ADT Wörterbuch (Dictionary)<a class="headerlink" href="#adt-worterbuch-dictionary" title="Permanent link"></a></h4>
+<ul>
+<li>search(x,W): x in W</li>
+<li>insert(x,W): füge x ein</li>
+<li>remove(x,W) entferne x falls vorhanden</li>
+</ul>
+<h3 id="datenstrukturen">Datenstrukturen<a class="headerlink" href="#datenstrukturen" title="Permanent link"></a></h3>
+<h4 id="linked-list">Linked List<a class="headerlink" href="#linked-list" title="Permanent link"></a></h4>
+<ul>
+<li>Besteht aus Elementen mit Schlüssel und Zeiger auf nächstes Element.</li>
+<li>Verwendung bei Stack und Queue</li>
+<li>Operationen in $\mathcal{O}(1)$</li>
+</ul>
+<h4 id="heap">Heap<a class="headerlink" href="#heap" title="Permanent link"></a></h4>
+<ul>
+<li>Verwendung bei Priority Queue</li>
+<li>Darstellung als Baum möglich, implementiert als Array</li>
+<li>Operationen in $\mathcal{O}(log(n))$</li>
+<li>genaue Beschreibung fehlt!!!</li>
+</ul>
+<h4 id="binary-search-tree">Binary Search Tree<a class="headerlink" href="#binary-search-tree" title="Permanent link"></a></h4>
+<h5 id="natural-search-tree">Natural Search Tree<a class="headerlink" href="#natural-search-tree" title="Permanent link"></a></h5>
+<ul>
+<li>Aufbau wie Linked List, aber mit zwei Zeigern. Dadurch Baumstruktur.</li>
+<li>Problem: Höhe sehr variabel, daher ineffizient</li>
+</ul>
+<h6 id="suche">Suche<a class="headerlink" href="#suche" title="Permanent link"></a></h6>
+<div class="codehilite"><pre>search(x, p):
+    if p = null: return &quot;not found&quot;
+    if p.key = x: return &quot;found&quot;
+    if x &lt; p.key: search(x, p.left)
+    if x &gt; p.key: search(x, p.right)
+</pre></div>
+
+<p>$\Longrightarrow \mathcal{O(h)}$ mit $h$ als Höhe des Baumes</p>
+<h6 id="entfernen">Entfernen<a class="headerlink" href="#entfernen" title="Permanent link"></a></h6>
+<p><img alt="natural_search_tree_removal" src="/Users/tobiasscheithauer/Library/Mobile%20Documents/com%7Eapple%7ECloudDocs/Studium/Zusammenfassungen/DnA_ressources/natural_search_tree_removal.jpg" /></p>
+<h4 id="avl-baum">AVL-Baum<a class="headerlink" href="#avl-baum" title="Permanent link"></a></h4>
+<ul>
+<li>Lösung der Effizienzprobleme natürlicher Suchbäume</li>
+<li>Neue Bedingung: bei jedem Knoten, darf der Unterschied zwischen der Höhe des linken und rechten Teilbaums höchstens 1 betragen.</li>
+<li>Da dir Anzahl der Blätter für eine Höhe des Baumes berechenbar ist mit den Fibonaccizahlen, kann die Höhe als $\Theta(log(n))$ angegeben werden</li>
+<li>Mit Fallunterscheidung und klugem Nachdenken lassen sich Einfügen und Entfernen durch Rotation und Doppelrotation in $\mathcal{O}(log(n))$ implementieren.</li>
+</ul>
+<h2 id="dynamische-programmierung">Dynamische Programmierung<a class="headerlink" href="#dynamische-programmierung" title="Permanent link"></a></h2>
+<p>Dynamische Programmierung ist im Prinzip nichts anderes als Induktion. DP besteht aus zwei wesentlichen Komponenten:</p>
+<ol>
+<li>Design der Induktion</li>
+<li>Wie kann das Problem in sinnvolle, einfachere Teilprobleme aufgeteilt werden?</li>
+<li>Bottom-up-Berechnung</li>
+<li>Berechnen der Lösung beim Startpunkt der Induktion</li>
+<li>Ähnliche Vorgehensweise, wie bei rekursiver Berechnung, aber mit Merken von zwischenergebnissen → Memoization</li>
+</ol>
+<h3 id="beispiele_1">Beispiele<a class="headerlink" href="#beispiele_1" title="Permanent link"></a></h3>
+<h4 id="beispiel-1-langste-aufsteigende-teilfolge-lat">Beispiel 1: Längste aufsteigende Teilfolge (LAT)<a class="headerlink" href="#beispiel-1-langste-aufsteigende-teilfolge-lat" title="Permanent link"></a></h4>
+<p>Über mehrere Zwischenschritte, die alle entweder falsch oder zu ineffizient sind, gelangt man schließlich zur Lösung:</p>
+<p>Invariante: Wir merken uns für jede Länge der Teilfolgen das letzte Element der Teilfolge der jeweiligen Länge, in der das letzte Element das kleinstmögliche ist. Daher lässt sich für das Einlesen eines weiteren Elemnts folgende Fallunterscheidung aufstellen:</p>
+<ol>
+<li>Wenn das Element größer ist, als das letzte Element, kann es als letztes Element einer neuen Länge gespeichert werden</li>
+<li>Passt es nocht, so kann der Endwert einer anderen Teilfolge gesenkt werden. Die zu ändernde Teilfolge ist die kürzeste, bei der das letzte Element größer ist, als das neue Element.</li>
+</ol>
+<p>Der so erstellbare Algorithmus hat eine Laufzeit von $\mathcal{O}(nlog(n))$, da für jedes Element, eine binäre Suche durchgeführt wird, um die richtige Stelle zu finden. Der Speicherbedarf liegt bei $\mathcal{O}(n)$, denn es wird eine Tabelle erstellt die maximal $n$ Elemente speichern wird.</p>
+<h4 id="beispiel-2-langste-gemeinsame-teilfolge-alignment">Beispiel 2: Längste gemeinsame Teilfolge (Alignment)<a class="headerlink" href="#beispiel-2-langste-gemeinsame-teilfolge-alignment" title="Permanent link"></a></h4>
+<p>Durch eine Fallunterscheidung lässt sich die längste gemeinsame Teilfolge finden und in eine Tabelle schreiben.</p>
+<table>
+<thead>
+<tr>
+<th align="center">LGT</th>
+<th align="center">_</th>
+<th align="center">T</th>
+<th align="center">I</th>
+<th align="center">G</th>
+<th align="center">E</th>
+<th align="center">R</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">_</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">Z</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">I</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">E</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">G</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">2</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">E</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">3</td>
+<td align="center">3</td>
+</tr>
+</tbody>
+</table>
+<p>Hier gilt: 
+$$
+\begin{align<em>}
+T[x,y] = max{&amp;\
+    &amp;LGT(x-1,y), \
+    &amp;LGT(x, y-1), \
+    &amp;LGT(x-1, y-1), \
+    &amp;LGT(x-1,y-1)+1\\
+    }
+\end{align</em>}
+$$
+Wobei der letzte Fall (mit Addition) nur auftritt, wenn $A[x]=B[y]$.</p>
+<p>Diese Algorithmus hat eine Laufzeit und einen Speicher von $\mathcal{O}(mn)$.</p>
+<h4 id="beispiel-3-minimale-editierdistanz">Beispiel 3: Minimale Editierdistanz<a class="headerlink" href="#beispiel-3-minimale-editierdistanz" title="Permanent link"></a></h4>
+<p>Für zwei gegebene Zeichenfolgen $A$ und $B$ wird berechnet wie viele der folgenden elementaren Bearbeitungsoperationen verwendet werden müssen, um aus der einen Zeichenfolge die andere zu erhalten:</p>
+<ul>
+<li>Ein Zeichen durch ein anderes ersetzten</li>
+<li>Ein Zeichen löschen</li>
+<li>Ein Zeichen einfügen</li>
+</ul>
+<p>Auch hier lässt siche ine Fallunterscheidung anwenden, um zu einer DP Tabelle zu gelangen:
+$$
+\begin{align<em>}
+EDT[n,m] = min{&amp;\
+    &amp;EDT(n-1,m)+1, \
+    &amp;EDT(n, m-1)+1, \
+    &amp;LGT(n-1, m-1)+1, \
+    &amp;LGT(n-1,m-1)\\
+    }
+\end{align</em>}
+$$
+Wobei auch hier der letzte Fall nur auftritt, wenn die beiden Zeichen gleich sind.</p>
+<h4 id="beispiel-4-matrixkettenmultiplikation">Beispiel 4: Matrixkettenmultiplikation<a class="headerlink" href="#beispiel-4-matrixkettenmultiplikation" title="Permanent link"></a></h4>
+<p>Die Multiplikation mehrerer Matrizen $A_1,&hellip;,A_n$ ist assoziativ, aber unterschiedliche Reihenfolgen der Multiplikation sind unterschiedlich zeitaufwändig. Daher gilt es, die beste Klammerung zu finden.</p>
+<p>Dieses Problem wird aufgeteilt, denn eine optimale Klammerung von $A_1&hellip;A_n$ besteht aus der Multiplikation von $A_1&hellip;A_i$ und $A_{i+1}&hellip;A_n$, sowie der optimalen Klammerung für diese beiden Teilprodukte. Es ergibt sich so die Rekurrenzgleichung: $T(p,q)=min_{p\leq i&lt;q}{T(p,i)+T(i+1,q)+C_{p,i,q}}$. Hier sind $T(p,q)$ die optimale Klammerung von $A_p&hellip;A_q$ und $C_{p,i,q}$ die Kosten der Multiplikation von $A_p&hellip;A_i$ und $A_{i+1}&hellip;A_q$.</p>
+<p>Mit einer $n \times n$ DP-Tabelle, in der jeder Eintrag $T(p,q)$ in $O(n)$ berechnet werden kann lässt sich dieses Problem in $O(n^3)$ lösen.</p>
+<h4 id="beispiel-5-teilsummenproblem">Beispiel 5: Teilsummenproblem<a class="headerlink" href="#beispiel-5-teilsummenproblem" title="Permanent link"></a></h4>
+<p>Nun haben wir eine Menge natürlicher Zahlen, sowie eine andere natürliche Zahl $b$. Wir suchen nach einer Teilmenge, sodass die Summe aller Elemente der Teilmenge gleich $b$ ist. Die Lösung dieses Problems ist naiv nur in $O(2^n)$ lösbar, weswegen wir DP verwenden.</p>
+<p>Es lässt sich feststellen, dass falls ein Lösung für $a_1,&hellip;,a_n$ existiert, dann ist entweder $b$ oder $b-a_n$ eine Teilsumme von $a_1,&hellip;,a_{n-1}$. Dadurch entsteht die Rekurrenzgleichung $T(k,s)=T(k-1,s) \lor T(k-1,s-a_k)$. Hieraus l¨åsst sich eine Tabelle berechnen und so das Problem in $O(bn)$ lösen.</p>
+<p>Diese Laufzeit wird pseudopolynomiell genannt, da sie bspw. für $b=2^n$ nicht in polynomieller Zeit gelöst werden kann. Ist $b$ allerdings polynomiell in $n$, so ist die Laufzeit polynomiell.</p>
+<h4 id="beispiel-6-rucksackproblem">Beispiel 6: Rucksackproblem<a class="headerlink" href="#beispiel-6-rucksackproblem" title="Permanent link"></a></h4>
+<p>Hier geht es darum, eine Teilmenge aus Menge von Paaren $(v,w)$ zu wählen, sodass die Summe der $v$ Werte maximiert wird, die Summe der $w$ Werte eine bestimmte Schranke $W$ aber nicht übersteigt. Wie beim Teilsummenproblem lässt sich dieses Problem in Teilprobleme zerlegen und eine Rekurrenz hierfür aufstellen: $T(i,W)=max{T(i-1,W), v_i+T(i-1,W-w_i)}$. Auch hier ist die Tabelle nur in $O(n*W)$ berechenbar, sodass auch dieser Algorithmus pseudopolynomiell ist.</p>
+<h4 id="beispiel-7-wege-von-u-nach-v-in-graphen-zahlen">Beispiel 7: Wege von $u$ nach $v$ in Graphen zählen<a class="headerlink" href="#beispiel-7-wege-von-u-nach-v-in-graphen-zahlen" title="Permanent link"></a></h4>
+<p>Gegeben ist ein gerichteter Graph $G$, zwei Knoten $u,v \in V(G)$ und eine Länge $L$. Gesucht ist die Anzahl der Wege in $G$ von $u$ nach $v$ der Länge $L$.</p>
+<p>Einsicht: Jeder Weg der Länge $L$ von $u$ nach $v$ besteht ais einem Weg von $u$ zu einem Knoten $w$ der Länge $L-1$ und einer Kante von $w$ nach $v$. </p>
+<p>Die Zerlegung in Teilprobleme gibt uns die Funktion $T^{(l)}(i,k)$, die die Anzahl der Wege von $i$ nach $k$ der Länge $l$ gibt. Es gilt die Rekurrenzgleichung $T^{(l)}(i,k) = \sum_{j:(j,k) \in E(G)}T^{(l-1)}(i,j)$.</p>
+<p>Erstellt man eine entsprechende Tabelle, so stellt man fest, dass $T^{(l)}=A^l$, wobei $A^l$ die $l$-te Potenz der Adjazenzmatrix des Graphen ist. So kann man Matrixmultiplikation als einfache Form der dynamischen Programmierung ansehen.</p>
+<h4 id="beispiel-8-kurzeste-wege-in-graphen">Beispiel 8: Kürzeste Wege in Graphen<a class="headerlink" href="#beispiel-8-kurzeste-wege-in-graphen" title="Permanent link"></a></h4>
+<p>Gegeben ist ein gerichteter Graph $G=(V,E)$, zwei Knoten $s,t \in V$ und Gewichte $w: E \longleftarrow \mathbb R$. Gesucht ist der Weg von $s$ nach $t$ in $G$ mit kleinstem Gewicht.</p>
+<p>Es kann festgestellt werden, dass es positive Zyklen (Wege mit beliebig großem Gewicht), negative Zyklen (Wege mit beliebig kleinem Gewicht) und &ldquo;neutrale&rdquo; Zyklen (Wege mit Geiwcht 0) gibt. </p>
+<p>Sind alle Gewichte gleich und positiv, so ist der beste Algorithmus die Breitensuche, da der kürzeste Weg auch der mit geringstem Gewicht ist.</p>
+<p>Einsicht 1: Der optimale Weg von $s$ nach $t$ besteht aus einem optimalen Weg von $s$ zu einem Knoten $i$ und der Kante von $i$ nach $t$. Daraus lässt sich die Rekurrenzgleichung erstellen: $T(j)=min_{i:(i,j) \in E}T(i)+w(i,j)}$. Leider hat diese Rekurrenz keinen Bezug zu kleineren Teilproblemen, weswegen ein neuer Ansatz gewählt werden muss.</p>
+<p>Einsicht 2: Um unseren Ansatz zu retten, verändern wir die Rekurrenzgleichung so, dass der optimale Weg von $s$ nach $i$ eine Kante weniger enthält, als der optimale Weg von $s$ nach $t$: $T(j,l)=min{T(j,l-1),min_{(i,j)\in E}T(i,l-1)+w(i,j)}$.</p>
+<p>Dieser Ansatz funktioniert besser und wird auch Bellman-Ford Algorithmus genannt.</p>
+<h3 id="approximation-fur-pseudopolynomielle-algorithmen">Approximation für pseudopolynomielle Algorithmen<a class="headerlink" href="#approximation-fur-pseudopolynomielle-algorithmen" title="Permanent link"></a></h3>
+<p>Um pseudopolynomielle Laufzeiten zu umgehen, kann man die Eingaben verändern, sodass zwar das Ergebnis nicht ganz korrekt, dafür aber effizient berechnet werden kann.</p>
+<h5 id="approximationsschema-fur-das-rucksackproblem">Approximationsschema für das Rucksackproblem<a class="headerlink" href="#approximationsschema-fur-das-rucksackproblem" title="Permanent link"></a></h5>
+<p>Seien die Gewichte $w_1,&hellip;,w_n \in \mathbb N$, die Werte $v_1,&hellip;,v_n \in \mathbb N$ und die Gewichtsschranke $W\in \mathbb N$ gegeben. Es kann ein $K \in \mathbb N$ gewählt werden, sodass für <strong>gerundete Nutzwerte</strong> $v_i&rsquo;=\lfloor\frac{v_i}{K}\rfloor$ eine optimale Lösung gefunden werden kann. Sei $V=v_1+&hellip;+v_n$ und angenommen wird, dass alle $w_i \leq W$ sind, so kann die Laufzeit als $O(nV/K)$ bestimmt werden.</p>
+<p>Betrachten wir jetzt die beiden Optimalen Lösungen $S$ für die Originalwerte und $S&rsquo;$ für die neuen Werte, so lässt sich folgendes sagen: Da $S&rsquo;$ optimal für alle Werte $v_i&rsquo;$ ist, gilt: $\sum_{i\in S&rsquo;}v_i&rsquo; \geq \sum_{i\in S}v_i&rsquo;$ . Außerdem gilt $v_i \geq K*v_i&rsquo; \geq v_i-K$, denn $v_i-Kv_i&rsquo;\leq 1​$. Daher gilt: </p>
+<p>$$
+\sum_{i \in S&rsquo;}v_i \geq K<em>\sum_{i \in S&rsquo;}v_i&rsquo; \geq \sum_{i \in S} v_i&rsquo; \geq \sum_{i \in S} v_i-n</em>K
+$$</p>
+<p>Folglich ist $\sum_{i\in S&rsquo;}v_i\geq\sum_{i \in S} v_i-nK$.</p>
+<p>Für ein $K=\epsilon V/n^2$ gilt daher
+$$
+\sum_{i\in S&rsquo;}v_i \geq \sum_{i \in S}v_i-\epsilon V/n \geq (1-\epsilon)\sum_{i\in S}v_i
+$$
+sowie
+$$
+O(nV/K)=O(n*n^2/\epsilon)
+$$</p></article></body></html>
